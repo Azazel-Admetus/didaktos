@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/suporte.css">
+    <title>DIDAKTOS | SUPORTE AO CLIENTE</title>
+</head>
+<body>
+    <section id="texto">
+        <div>
+            <header>
+                <h1>Seja bem-vindo ao serviço de suporte ao cliente</h1>
+            </header>
+            <div>
+                <p>Digite seu nome, email e pergunta ou denúncia nos campos do formulário. Enviaremos uma resposta para o seu email em até 7 dias.</p>
+            </div>
+            <footer>
+                <a class="botao" href="home.html">VOLTAR</a>
+            </footer>
+        </div>
+    </section>
+    <section class="formulario">
+        <h2>DIDAKTOS</h2>
+        <form action="../php/suporte.php" method="POST">
+            <header>
+                <h3>SUPORTE</h3>
+            </header>
+            <div id="form">
+                <label>EMAIL</label>
+                <input type="email" placeholder="DIGITE SEU EMAIL" name="email" required><br>
+                <label>NOME</label>
+                <input type="text" placeholder="DIGITE SEU NOME" name="nome"><br>
+                <label>PERGUNTE:</label>
+                <textarea name="pergunta" rows="5" cols="50" placeholder="DIGITE AQUI SUA PERGUNTA OU DENÚNCIA" required></textarea>
+            </div>
+            <footer>
+                <button class="botao" type="submit">ENVIAR</button>
+            </footer>
+        </form>
+    </section>
+    <section id="overlay">
+        <div id="caixademensagem">
+            <p>Agradecemos pelo seu contato. Sua pergunta foi recebida com sucesso e será respondida em até 7 dias utéis. Caso precise de mais informações, fique à vontade para entrar em contato.</p>
+            <button id="fechar">Fechar</button>
+        </div>
+    </section>
+    
+    <script>
+        function mostrarMensagem() {
+            document.getElementById("overlay").style.display = "flex";
+
+        }
+        document.getElementById("fechar").addEventListener("click", function(){
+            document.getElementById("overlay").style.display = "none";
+        });
+        if (window.location.search.includes("sent=true")){
+            mostrarMensagem();
+        }
+    </script>
+</body>
+</html>
