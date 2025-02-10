@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* estilizando o header */
+#header1{
+    background-color: #f5f5f5;
+    padding:10px;
+    border-bottom: solid 1px #64b5f6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.link{
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Lato", serif;
+    font-style: normal;
+    font-weight: 500;
+    color: #64b5f6;
+}
+.link:hover{
+    color: #2196f3;
+    text-decoration: underline;
+
+}
+h1{
+    font-family: "Playfair Display", serif;
+    font-style: bold;
+    font-weight: 800;
+    color: #6ec1e4;
+    text-decoration: underline;
+}
+/* estilizando a seção com texto e botão para chamada de ação */
+#header2{
+    margin-top: 200px;
+    margin-bottom: 30px;
+}
+h2{
+    font-family: "Lato", serif;
+    font-style: bold;
+    font-weight: 700;
+    color: #64b5f6;
+    text-align: center;
+
+}
+span{
+    color: #2196f3;
+    text-decoration: underline;
+}
+#p1{
+    font-family: "Lato", serif;
+    font-style: normal;
+    font-weight: 500;
+    text-align: center;
+    color: #64b5f6;
+    margin-bottom:50px ;
+    padding:0px 50px;
+    font-size: 20px;
+}
+#footer1{
+    display: flex;
+    justify-content: center;
+    margin-bottom:200px ;
+}
+button{
+    background-color: #2196f3;
+    border: none;
+    border-radius: 50px;
+    padding: 40px;
+    color: #f5f5f5;
+    font-style: bold ;
+    font-weight: 800;
+    font-family: "Lato", serif;
+    text-align: center;    
+    font-size: 20px;
+}
+button:hover{
+    
+    background-color: #6ec1e4;
+    color: #f5f5f5;
+    border: solid 2px #0f4c75;
+}
+#section1{
+    border-bottom: solid 1px #64b5f6;
+}
+/* estilizando a segunda seção - seção dos benefícios */
+#section2{
+    margin-top: 0;
+    background-color: #d3f0fb;
+    border-bottom: solid 1px #64b5f6;
+    padding: 20px;
+}
+
+h3{
+    color: #0f4c75;
+    font-family: "Lato", serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+ul{
+    list-style-type: none;   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+h4{
+    font-family: "Lato", serif;
+    font-size: 25px;
+    color: #001f3d;
+    font-weight: bold;
+
+}
+.p2{
+    font-size: 20px;
+    color:#1d4ed8;
+}
+li{
+    border: solid 2px #001f3d;
+    padding: 20px;
+    border-radius: 50px;
+    transition:padding 0.3s ease;
+    text-align: center;
+}
+li:hover{
+    padding: 70px;
+    text-align: center;
+}
+/* estilizando o footer */
+#footer2{
+    background-color: #f5f5f5;
+    padding-top: 50px
+}
+#section3{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: solid 1px #64b5f6;
+}
+label{
+    font-family: "Lato", serif;
+    font-size: 20px;
+    font-style: normal;
+    color: #001f3d;
+    font-weight: bold;
+}
+select{
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 15px;
+    text-align: center;
+    border: solid 1px #001f3d;
+    margin-bottom: 30px;
+}
+#termos{
+    display: flex;
+    flex-direction: column;
+}
+.linkstermo{
+    text-decoration: none;
+    color: #1d4ed8;
+    margin-bottom: 10px;
+    
+}
+#contato{
+    color: #1d4ed8;
+    font-family: "Lato", serif;
+    font-weight: 500;
+    font-style: bold;
+    font-size: 15px;
+    text-decoration: underline;
+}
+#section4{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: solid 1px #64b5f6;
+}
+h5{
+    font-family: "Playfair Display", serif;
+    font-style: bold;
+    font-weight: 800;
+    color: #001f3d;
+    text-decoration: underline;
+    margin-left: 30px;
+    font-size: 20px;
+}
+#footerp{
+    font-size: 20px;
+    color:#1d4ed8;
+    text-decoration: underline;
+}
