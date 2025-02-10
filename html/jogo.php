@@ -26,6 +26,7 @@
     </header>
     <main>
         <h2>A AFIRMAÇÃO É VERDADEIRA OU FALSA?</h2> 
+        <form action="../php/game.php" method="POST"></form>
     </main>
 
     <script src="../js/game.js"></script>

@@ -1,7 +1,7 @@
 <?php
 require_once "conn.php";
 // verificando se o formulário foi enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email=$_POST['email'];
     $pass=$_POST['senha'];
     // verificando se os campos estão em branco
