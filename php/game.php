@@ -22,12 +22,13 @@ if ($id){
         $user = $jogo['nome'];
         $id_jogo_info = $jogo['id'];
         // buscando agora as informações da tabela do conteúdo do jogo
-        $stmt_content = $conn->prepare('SELECT pergunta FROM verdadeirofalsocontent WHERE verdadeirofalsoid = ?');
+        $stmt_content = $conn->prepare('SELECT pergunta, resposta FROM verdadeirofalsocontent WHERE verdadeirofalsoid = ?');
         $stmt_content->execute([$id_jogo_info]);// passando o id como parâmetro no where
         $content = $stmt_content->fetch(PDO::FETCH_ASSOC);
         //verificando se a consulta deu certo, atribuiremos variáveis e iremos inserir o conteúdo html
         if ($content){
             $quest = $content['pergunta'];
+            $answer = $content['resposta'];
             //inserindo o html
             echo "
                 <section id='secaoJogo'>
@@ -37,8 +38,8 @@ if ($id){
                             <h3 id='afirmacao'>$quest</h3>
                         </header>
                         <section id='sectionBotoes'>
-                            <button type='submit' name='resposta' id='verdadeiro' value='verdadeiro'>VERDADEIRO</button>
-                            <button type='submit' name='resposta' id='falso' value='falso'>FALSO</button>
+                            <button type='submit' id='verdadeiro' value='verdadeiro'>VERDADEIRO</button>
+                            <button type='submit' id='falso' value='falso'>FALSO</button>
                         </section>
                     </section>
                     <section id='informacaoDoJogo'>
@@ -58,3 +59,19 @@ if ($id){
 };
 
 // agora vamos verificar a resposta do user
+//primeiro vamos verificar se o servidor enviou os dados 
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $answer = $_POST['resposta'];
+    //verifico se o campo está vazio
+    if (!empty($answer)){
+        //comparando as respostas
+        if ($answer == $tadashiihenji){
+            header('Location: ../html/jogo.php?answer=True');
+            exit;
+        } else{
+            header('Location: ../html/jogo.php?answer=False');
+            exit;
+        }
+
+    }
+} 
