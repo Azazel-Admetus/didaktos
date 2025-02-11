@@ -20,7 +20,7 @@ if ($stmt->execute()){ //verificando se rodo
         if (!empty($id) && !empty($autor) && !empty($titulo)){
             $found = true;
             echo "
-            <a class='link' href='game.html?id=$id'> 
+            <a class='link' href='jogo.php?id=$id'> 
                 <div class='card'>
                         <img class='icone' src='../img/tfjogoicon.jpeg'>
                         <img class='icon' src='../img/iconegame.png'>
