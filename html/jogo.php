@@ -27,9 +27,9 @@
     <main>
         <h2>A AFIRMAÇÃO É VERDADEIRA OU FALSA?</h2> 
         <!-- <form action="../php/game.php" method="POST"> -->
-            <?php
-            require_once "../php/game.php";
-            ?> 
+        <?php
+            require_once "../php/verdadeiro_falso_jogo.php";
+        ?>
         <!-- </form> -->
     </main>
 

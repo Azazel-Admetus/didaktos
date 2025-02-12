@@ -7,9 +7,9 @@ if (isset($_GET['empty']) && $_GET['empty'] === "True"){
     exit;
 }
 // hora de sequestrar o id da url
-$id = $_GET['id'] ?? null;
+$id = $_POST['id'] ??  $_GET['id'] ?? null;
 //buscar as informações no db
-if ($id  === null){
+if ($id  === null || !preg_match('/^[a-f0-9]{32}$/i', $id)){
     header("Location: ../html/jogo.php?error=id_invalido");
     exit;
 }
@@ -41,13 +41,13 @@ if ($jogo){//atribuindo os valores às variaveis
                 //verificando se as respostas estão corretas
                 if ($resposta_user ==  $answer){
                     if (!isset($_GET['answer'])){
-                        header('Location: ../html/jogo.php?answer=True');
-                        exit;
+                        header("Location: ../html/jogo.php?id=$id&nswer=True");
+                        return;
                     }
                 }else{
                     if (!isset($_GET['answer'])){
-                        header('Location: ..html/jogo.php?answer=False');
-                        exit;
+                        header("Location: ../html/jogo.php?id=$id&answer=False");
+                        return;
                     }
                 }
             }
@@ -55,6 +55,7 @@ if ($jogo){//atribuindo os valores às variaveis
         //inserindo o html
         echo "
             <form action='../php/game.php' method='POST'>
+                <input type='hidden' name='id' value='<?php echo htmlspecialchars($id, ENT_QUOTES, 'UTF-8');?>'>
                 <section id='secaoJogo'>
                     <section id='jogo'>
                         <h2 id='titulo'>$titulo</h2>
