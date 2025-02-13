@@ -1,6 +1,7 @@
 <?php
 //relacionando o arquivo de conexão
 require_once 'conn.php';
+
 $dados = include_once "buscar_no_db.php";
 if (!isset($dados)){
     header('Location:../html/jogo.php?error=dados+invalidos');

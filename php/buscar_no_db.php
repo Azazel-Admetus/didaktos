@@ -1,10 +1,8 @@
 <?php
 //referenciando o arquivo de conexão
 require_once "conn.php";
-require "capturar_id.php";
-$id = capturar_id();
-
-
+session_start(); //iniciando a sessao para pegar o id
+$id = $_SESSION['id'];
 //buscar as info do jogo
 $stmt = $conn->prepare('SELECT v.id, v.token, v.titulo, v.descricao, u.nome 
                         FROM verdadeirofalso v      
