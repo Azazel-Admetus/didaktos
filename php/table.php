@@ -4,13 +4,14 @@ require_once "conn.php";
 
 // criando as tables
 try{
-    $sql= "CREATE TABLE IF NOT EXISTS verdadeirofalsocontent(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    verdadeirofalsoid INT NOT NULL,
+    $sql= "CREATE TABLE IF NOT EXISTS quiz(
+    id INT PRIMARY KEY AUTO_INCREMENT,
     pergunta TEXT NOT NULL,
-    resposta VARCHAR(50) NOT NULL,
-    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (verdadeirofalsoid) REFERENCES verdadeirofalso(id)
+    resposta1 TEXT NOT NULL,  
+    resposta2 TEXT NOT NULL, 
+    resposta3 TEXT NOT NULL, 
+    resposta4 TEXT NOT NULL,
+    resposta_correta ENUM('a', 'b', 'c', 'd', 'e')
     )";
 
     $conn->exec($sql);
