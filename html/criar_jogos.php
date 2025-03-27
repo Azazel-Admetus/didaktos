@@ -11,7 +11,7 @@ if(isset($_GET['tipo'])){
             header('Location:quiz.html');
             break;
         case 'vf':
-            header('Location:TrueFalse.html');
+            header('Location:verdadeirofalso.html');
             break;
         case 'objeto':
             header('Location:jogo_objeto.html');
