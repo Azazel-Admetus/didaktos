@@ -8,7 +8,7 @@ if(isset($_GET['tipo'])){
     setcookie('id_jogo', $token, time() + 86400, '/');
     switch ($tipo_jogo){
         case 'quiz':
-            header('Location:quiz.html');
+            header('Location:quiz.php');
             break;
         case 'vf':
             header('Location:verdadeirofalso.html');

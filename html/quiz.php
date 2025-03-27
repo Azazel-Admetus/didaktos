@@ -1,3 +1,18 @@
+<?php
+session_start();
+require_once "../php/conn.php";
+if(!isset($_COOKIE['id_jogo'])){
+    die("Nenhum token encontrado");
+}
+$id_jogo =$_COOKI['id_jogo'];
+$pergunta = $_POST['pergunta'];
+$alternativa1= $_POST['alternativa1'];
+$alternativa2 = $_POST['alternativa2'];
+$alternativa3 = $_POST['alternativa3'];
+$alternativa4 = $_POST['alternativa4'];
+$resposta = $_POST['']
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,7 +39,7 @@
             </nav>
         </header>
         <section>
-            <form>
+            <form method='post'>
                 <header>
                     <h2>Crie um quiz educativo</h2>
                 </header>
@@ -42,7 +57,12 @@
                 <label for="alternativa5" class="hidden">Alternativa E</label>
                 <input type="text" id="alternativa5" name="alternativa5" class="hidden" placeholder="Defina uma outra possível resposta">
                 <button type="button" id="mostrarAlt">Adicionar alternativa</button>
+                
+                <h3>Escolha a alternativa correta
+
+
                 <button type="submit">Enviar</button>
+            </form>
         </section>
     </main>
     <script>
