@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#headerprimeiro{
+    background-color: #f5f5f5;
+    margin: 10px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.2);
+}
+h1{
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #63c1e4;
+    text-align: center;
+    text-decoration: underline;
+}
+nav{
+    position: absolute;
+    background-image: url('../img/iconeconfig.png') ;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    display: inline-block;
+    cursor: pointer;
+    background-position: center;
+    margin-left: -60px;
+}
+nav ul{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    margin-left: -50px;
+    margin-top: -10px;
+}
+#user{
+    background-image: url('../img/iconeperfil.png');
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    display: inline-block;
+    margin-bottom: 10px;
+    background-position: center;
+}
+#exit{
+    background-image: url('../img/iconesair.png');
+    background-size: cover;
+    width:30px;
+    height: 30px;
+    display: inline-block;
+    background-position:center ;
+}
+li{
+    list-style: none;
+    display: none;
+    border: solid 2px #8bd8;
+    padding: 20px 40px;
+    margin-left: -40px;
+}
+li:hover{
+    background-color: rgba(127, 175, 207, 0.533);
+    border: solid  2px rgba(68, 92, 109, 0.533);
+    transition: background-color 0.3s ease, border 0.5s ease;
+}
+/* estilizando os <h> e <p> */
+h2{
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+    color: #63c1e4;
+    font-size: 30px;
+    margin-top: 50px;
+}
+h3{
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #64b5f6;
+    text-align: center;
+    border-bottom: solid 1px rgb(18, 55, 70);
+}
+h4{
+    font-family: 'Lato', serif;
+    font-weight: 400;
+    color: #0083ee;
+    font-size: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+p{
+    font-family:'Lato', serif ;
+    font-size: 12px;
+    color: #008cff;
+    font-weight: 600;
+    text-align: center;
+}
+/* estilizando os botoes */
+#verdadeiro{
+    padding:20px 40px;
+    border-radius: 50px;
+    border: solid 2px rgba(168, 168, 168, 0.888);
+    font-family: "lato",serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+}
+#falso{
+    padding: 20px 40px ;
+    border-radius: 50px;
+    border: solid 2px rgba(168, 168, 168, 0.888);
+    font-family: "Lato", serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 10px;
+}
+#verdadeiro:hover{
+    color:#fff;
+    background-color: rgb(81, 223, 81);
+    border: none;
+}
+#falso:hover{
+    color:#fff;
+    background-color: rgb(253, 75, 75);
+    border: none;
+}
+#secaoJogo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#jogo{
+    box-shadow:2px 2px 3px 3px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 100px;
+    margin-top: 50px;
+    max-width: 700px;
+    max-height: 700px;
+}
+#informacaoDoJogo{
+    background-color: #bbdcf7;
+    max-width: 500px;
+    max-height: 500px;
+    padding:50px 100px;
+    border-radius: 50px;
+    margin-top: 70px;
+}
+#descricao{
+    margin-top: 50px;
+}
+#informacaoDoJogo:hover{
+    box-shadow: 1px 1px 4px 4px rgba(81, 183, 252, 0.7);
+}

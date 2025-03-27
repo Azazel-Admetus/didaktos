@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^support$ suporte.html [L]
+RewriteRule ^login$ login.html [L]
+RewriteRule ^register$ cadastro.html [L]
