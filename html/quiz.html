@@ -1,18 +1,3 @@
-<?php
-session_start();
-require_once "../php/conn.php";
-if(!isset($_COOKIE['id_jogo'])){
-    die("Nenhum token encontrado");
-}
-$id_jogo =$_COOKI['id_jogo'];
-$pergunta = $_POST['pergunta'];
-$alternativa1= $_POST['alternativa1'];
-$alternativa2 = $_POST['alternativa2'];
-$alternativa3 = $_POST['alternativa3'];
-$alternativa4 = $_POST['alternativa4'];
-$resposta = $_POST['']
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -39,7 +24,7 @@ $resposta = $_POST['']
             </nav>
         </header>
         <section>
-            <form method='post'>
+            <form action="../php/armazenar_quiz.php" method='post'>
                 <header>
                     <h2>Crie um quiz educativo</h2>
                 </header>
@@ -49,23 +34,25 @@ $resposta = $_POST['']
                 <input type="text" id="alternativa1" name="alternativa1" placeholder="Defina uma possível resposta" required>
                 <label for="alternativa2">Alternativa B</label>
                 <input type="text" id="alternativa2" name="alternativa2" placeholder="Defina uma outra possível resposta" required>
-
-                <label for="alternativa3" class="hidden">Alternativa C</label>
-                <input type="text" id="alternativa3" name="alternativa3" class="hidden" placeholder="Defina uma outra possível resposta">
-                <label for="alternativa4" class="hidden">Alternatica D</label>
-                <input type="text" id="alternativa4" name="alternativa4" class="hidden" placeholder="Defina uma outra possível resposta">
-                <label for="alternativa5" class="hidden">Alternativa E</label>
-                <input type="text" id="alternativa5" name="alternativa5" class="hidden" placeholder="Defina uma outra possível resposta">
-                <button type="button" id="mostrarAlt">Adicionar alternativa</button>
+                <label for="alternativa3" >Alternativa C</label>
+                <input type="text" id="alternativa3" name="alternativa3"  placeholder="Defina uma outra possível resposta">
+                <label for="alternativa4">Alternatica D</label>
+                <input type="text" id="alternativa4" name="alternativa4"  placeholder="Defina uma outra possível resposta">
+                <label for="alternativa5" >Alternativa E</label>
+                <input type="text" id="alternativa5" name="alternativa5" placeholder="Defina uma outra possível resposta">
                 
-                <h3>Escolha a alternativa correta
-
+                <h3>Escolha a alternativa correta</h3>
+                <input type="radio" name="alterantivas" value="A">A
+                <input type="radio" name="alternativas" value="B">B
+                <input type="radio" name="alternativas" value="C">C
+                <input type="radio" name="alternativas" value="D">D
+                <input type="radio" name="alternativas" value="E">E
 
                 <button type="submit">Enviar</button>
             </form>
         </section>
     </main>
-    <script>
+    <!-- <script>
         const botao = document.getElementById('mostrarAlt');
         const labels = [
             document.querySelector('label[for="alternativa3"]'),
@@ -88,6 +75,6 @@ $resposta = $_POST['']
                 botao.textContent = 'Número máximo de alternativas alcançado';
             }
         })
-    </script>
+    </script> -->
 </body>
 </html>
