@@ -27,6 +27,7 @@
             <form action="../php/armazenar_quiz.php" method='post'>
                 <header>
                     <h2>Crie um quiz educativo</h2>
+                    <p>É obrigatório que se tenha no mínimo duas alternativas com uma delas sendo correta. Não é obrigatório definir as 5 alternativas. Pode deixá-las em branco, no jogo elas não aparecerão</p>
                 </header>
                 <label for="pergunta" >Pergunta</label>
                 <input type="text" id="pergunta" name="pergunta" placeholder="Crie sua pergunta para o quiz" required>
@@ -42,6 +43,7 @@
                 <input type="text" id="alternativa5" name="alternativa5" placeholder="Defina uma outra possível resposta">
                 
                 <h3>Escolha a alternativa correta</h3>
+                <p>O máximo de alternativas corretas que podem ser definidas é 4</p>
                 <input type="radio" name="alterantivas" value="A">A
                 <input type="radio" name="alternativas" value="B">B
                 <input type="radio" name="alternativas" value="C">C
