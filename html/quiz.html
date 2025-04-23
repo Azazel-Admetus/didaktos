@@ -39,44 +39,76 @@
                 <input type="text" id="alternativa3" name="alternativa3"  placeholder="Defina uma outra possível resposta">
                 <label for="alternativa4">Alternatica D</label>
                 <input type="text" id="alternativa4" name="alternativa4"  placeholder="Defina uma outra possível resposta">
-                <label for="alternativa5" >Alternativa E</label>
-                <input type="text" id="alternativa5" name="alternativa5" placeholder="Defina uma outra possível resposta">
-                
+         
+<!--                 
                 <h3>Escolha a alternativa correta</h3>
-                <p>O máximo de alternativas corretas que podem ser definidas é 4</p>
-                <input type="radio" name="alterantivas" value="A">A
+                <p>O máximo de alternativas corretas que podem ser definidas é 3
+                </p>
+                <input type="radio" name="alternativas" value="A">A
                 <input type="radio" name="alternativas" value="B">B
                 <input type="radio" name="alternativas" value="C">C
-                <input type="radio" name="alternativas" value="D">D
-                <input type="radio" name="alternativas" value="E">E
-
+                <input type="radio" name="alternativas" value="D">D -->
+                <div id="checkbox-container"></div>
                 <button type="submit">Enviar</button>
             </form>
         </section>
     </main>
-    <!-- <script>
-        const botao = document.getElementById('mostrarAlt');
-        const labels = [
-            document.querySelector('label[for="alternativa3"]'),
-            document.querySelector('label[for="alternativa4"]'),
-            document.querySelector('label[for="alternativa5"]')
+    <script>
+        const alternativas = [
+            document.getElementById("alternativa1"),
+            document.getElementById("alternativa2"),
+            document.getElementById("alternativa3"),
+            document.getElementById("alternativa4")
         ];
-        const opcoes = [
-            document.getElementById('alternativa3'), 
-            document.getElementById('alternativa4'),
-            document.getElementById('alternativa5')
-        ];
-        let mostrarAlternativa = 0;
-        botao.addEventListener('click', () => {
-            if (mostrarAlternativa < labels.length){
-                labels[mostrarAlternativa].classList.remove('hidden');
-                opcoes[mostrarAlternativa].classList.remove('hidden');
-                mostrarAlternativa++;
-            }else{
-                botao.disabled= true;
-                botao.textContent = 'Número máximo de alternativas alcançado';
-            }
-        })
-    </script> -->
+        const form = document.querySelector("form");
+
+        const radiosContainer = document.getElementById("checkbox-container");
+
+        let checkboxes = [];
+        function atualizarCheckboxes (){
+            radiosContainer.innerHTML = "<h3>Escolha a(s) alternativa(s) correta(s)</h3><p>Você poderá escolher de 1 até três respostas, dependendo da quantidade de alternativas preenchidas</p>";
+            checkboxes = [];
+            let preenchidas = 0;
+            alternativas.forEach((alt, index) =>{
+                if (alt.value.trim() !== ""){
+                    preenchidas++;
+                    const letra = String.fromCharCode(65 + index);
+                    const checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    checkbox.name = "alternativas_certas[]";
+                    checkbox.value = letra;
+                    checkbox.id = "checkbox" + letra;
+                    
+                    const label = document.createElement("label");
+                    label.htmlFor = checkbox.id;
+                    label.textContent = letra;
+                    checkboxes.push(checkbox);
+                    radiosContainer.appendChild(checkbox);
+                    radiosContainer.appendChild(label);
+                }
+            });
+
+            let limite = 1;
+            if(preenchidas === 3) limite = 2;
+            if(preechidas >= 4) limite = 3;
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener("change", () => {
+                    const marcados = checkboxes.filter(c => c.checked);
+                    if (!checkbox.checked && marcados.length >= limite){
+                        e.preventDefault();
+                        alert(`Você só pode escolher até ${limite } alternativa${limite > 1 ? 's' : ''} correta${limite > 1 ? 's' : ''}.`);
+                    }
+                });
+              
+            });
+
+        }
+
+        alternativas.forEach(input =>{
+            input.addEventListener("input", atualizarCheckboxes)
+        });
+        atualizarCheckboxes();
+    </script>
+  
 </body>
 </html>
