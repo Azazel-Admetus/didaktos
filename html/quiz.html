@@ -87,16 +87,25 @@
                     radiosContainer.appendChild(label);
                 }
             });
-
-            let limite = 1;
+// alterei o valor inicial do limite para 0. E coloquei mais verificações no preenchidas para impedir do usuário quando tiver somente uma alternativa válida conseguir preencher ela.
+            let limite = 0;
+            if(preenchidas === 1) limite = 0;
+            if(preenchidas === 2) limite = 1;
             if(preenchidas === 3) limite = 2;
-            if(preechidas >= 4) limite = 3;
+            if(preenchidas >= 4) limite = 3;
             checkboxes.forEach(checkbox => {
-                checkbox.addEventListener("change", () => {
+                checkbox.addEventListener("change", (event) => {
                     const marcados = checkboxes.filter(c => c.checked);
-                    if (!checkbox.checked && marcados.length >= limite){
-                        e.preventDefault();
-                        alert(`Você só pode escolher até ${limite } alternativa${limite > 1 ? 's' : ''} correta${limite > 1 ? 's' : ''}.`);
+                    if (marcados.length >= limite){
+                        event.preventDefault();
+                        checkbox.checked = false;
+                        // coloquei uma verificação nos alertas para falar ao usuário que precisa ter no mínimo duas alternativas válidas.
+                        if(limite == 0){
+                            alert("Você precisa ter no mínimo duas alternativas válidas");
+                        }else{
+                            alert(`Você só pode escolher até ${limite } alternativa${limite > 1 ? 's' : ''} correta${limite > 1 ? 's' : ''}.`);                 
+                        }
+                        
                     }
                 });
               
