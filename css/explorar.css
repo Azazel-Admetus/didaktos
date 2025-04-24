@@ -33,14 +33,16 @@ nav{
     background-position: center;
     margin-left:-60px
 }
+
 nav ul{
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* altere esse valor para "row" e tome cuidado com o margin left e top. Vai vendo como tá ficando e faça alteração desses valores. Se precisar pode alterar esses atributos*/
     padding: 50px;
     margin-left: -50px;
     margin-top: -10px;
     
 }
+/* não pegue essas tags #user e #exit. Elas são referentes aos links que não tem na página index e home. Vai estilizando aí. O que precisar é só falar comigo que eu ajudo */
 #user{
     background-image:url('../img/iconeperfil.png') ;
     width: 30px;
