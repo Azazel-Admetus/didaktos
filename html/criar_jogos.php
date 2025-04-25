@@ -30,25 +30,27 @@ if(isset($_GET['tipo'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/criar_jogos.css">
     <title>Criar jogos | DIDAKTOS</title>
 </head>
 <body>
     <main>
-        <header>
-            <a href="home.html">
-                <h1>DIDAKTOS</h1>
-            </a>
-            <nav>
-                <ul>
-                    <li>
-                        <a href=""></a>
-                    </li>
-                    <li>
-                        <a href="index.html">sair</a>
-                    </li>
-                </ul>
-            </nav>
+    <header id="cabecalho">
+            <h1>DIDAKTOS</h1>
+            <section id="secao">
+              
+                <div id="menu">
+                    <a id="perfil" href=""></a>
+                    <div class="menucontent" >
+                        <h4>User</h4>
+                        <!-- <a id="config" href="#"></a> -->
+                        <a id="sair" href="index.html"></a>
+                        <a href="suporte.html">SUPORTE</a>
+                    </div>
+                </div>
+            </section>
         </header>
+     
         <section>
             <header>
                 <h2>Crie seu jogo de forma totalmente <span>gratuita</span>!</h2>
@@ -59,8 +61,8 @@ if(isset($_GET['tipo'])){
                 <select name="tipo" id="tipo">
                     <option value="quiz">Quiz</option>
                     <option value="vf">Verdadeiro ou Falso?</option>
-                    <option value='objeto'>Qual objeto é esse?</option>
-                    <option value="animal">Qual animal é esse?</option>
+                    <!-- <option value='objeto'>Qual objeto é esse?</option>
+                    <option value="animal">Qual animal é esse?</option> -->
                 </select>
                 <button type="submit">Criar Jogo</button>
             </form>
