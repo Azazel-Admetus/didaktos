@@ -12,8 +12,6 @@
             <h1>DIDAKTOS</h1>
             <section id="secao">
                 <a href="suporte.html">SUPORTE</a>
-                <a href="feed.php">PROCURAR JOGOS</a>
-                <a id="botao" href="TrueFalse.html">NOVO JOGO</a>
                 <div id="menu">
                     <a id="perfil" href=""></a>
                     <div class="menucontent" >
@@ -25,11 +23,15 @@
             </section>
         </header>
         <section id="section-pai">
-            <section></section>
+            <section>
+                <h3>Ao clicar no botão de salvar, você armazena as afirmações com as respostas feitas. Para publicar seu jogo, você deve definir as configurações dele.</h3>
+                <p>Acesse o link abaixo para definir as configurações do jogo</p>
+                <a href="verdadeirofalsoconfiguracao.html">Configurações</a>
+            </section>
             <form action="../php/verdadeirofalso.php" method="POST">
                 <header>
                     <h2>Jogo de Verdadeiro ou Falso</h2>
-                    <p>Crie uma afirmação e classifique ela como verdadeira ou falsa</p>
+                    <p>Crie uma afirmação e classifique ela como verdadeira ou falsa. <span>É obrigatório escolher se a alternativa é verdadeira ou falsa.</span></p>
                 </header>
                 <section>
                     <label for="pergunta">Pergunta</label>
