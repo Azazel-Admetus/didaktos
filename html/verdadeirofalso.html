@@ -38,9 +38,9 @@
                     <input type="text" id="pergunta" name="pergunta" required placeholder="Crie aqui a sua afirmação">
                     <div>
                         <label for="verdadeiro">Verdadeiro</label>
-                        <input type="radio" value="verdadeiro" id="verdadeiro" name="verdadeiro"> 
+                        <input type="radio" value="verdadeiro" id="verdadeiro" name="resposta">
                         <label for="falso">Falso</label>
-                        <input type="radio" value="falso" id="falso" name="falso">
+                        <input type="radio" value="falso" id="falso" name="resposta">
                     </div>
                 </section>
                 <footer>
@@ -49,6 +49,15 @@
             </form>
         </section>
     </main>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const mensagem = urlParams.get('quest');
+        if(mensagem == "salvada"){
+            alert("Pergunta salvada com sucesso!")
+        } else if(mensagem == "!salvada"){
+            alert("Erro ao salvar a pergunta. Tente novamente. Se o erro persistir, contate o suporte.")
+        }
+    </script>
 </body>
 </html>
  <!-- <script>
