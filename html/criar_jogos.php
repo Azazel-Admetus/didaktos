@@ -45,10 +45,11 @@ if(isset($_GET['tipo'])){
                     <div class="menucontent" >
                         <h4>User</h4>
                         <!-- <a id="config" href="#"></a> -->
-                        <a id="sair" href="index.html"></a>
                         <a href="suporte.html">
-                            <i class="fa-solid fa-circle-question"></i>
+                            <i class="fa-solid fa-circle-question fa-2x" title="Suporte ao cliente para tirar dúvidas ou solucionar problemas."></i>
                         </a>
+                        <a id="sair" href="index.html" title="Deslogar"></a>
+                        
                     </div>
                 </div>
             </section>
