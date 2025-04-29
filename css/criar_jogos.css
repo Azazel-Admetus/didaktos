@@ -109,3 +109,13 @@ a:hover{
 }
 
 /* vamos ao meio do site */
+span{
+    color: #64b5f6;
+}
+
+#secao-main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
