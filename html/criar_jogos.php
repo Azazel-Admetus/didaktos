@@ -30,6 +30,7 @@ if(isset($_GET['tipo'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/166d077dc6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/criar_jogos.css">
     <title>Criar jogos | DIDAKTOS</title>
 </head>
@@ -45,7 +46,9 @@ if(isset($_GET['tipo'])){
                         <h4>User</h4>
                         <!-- <a id="config" href="#"></a> -->
                         <a id="sair" href="index.html"></a>
-                        <a href="suporte.html">SUPORTE</a>
+                        <a href="suporte.html">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </a>
                     </div>
                 </div>
             </section>
