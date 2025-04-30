@@ -7,7 +7,9 @@ if(isset($_GET['tipo'])){
     //armazenar o token no cookie com validade de 24h
     setcookie('id_jogo', $token, time() + 86400, '/');
     require_once "../php/conn.php";
-    $stmt = $conn->prepare('INSERT INTO jogos (token) VALUES (:token)');
+    $pin = gerarPin();
+    $stmt = $conn->prepare('INSERT INTO jogos (token, pin) VALUES (:token, :pin)');
+    $stmt->bindValue(':pin', $pin);
     $stmt->bindValue(':token', $token);
 
     switch ($tipo_jogo){

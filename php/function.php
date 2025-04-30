@@ -25,3 +25,7 @@ function validarToken($token){
     return preg_match('/^(quiz|vf|objeto|animal)_[a-f0-9]{8}$/', $token);
 
 }
+//funcao para criar um pin
+function gerarPin($digitos = 6){
+    return str_pad(rand(0, pow(10, $digitos)-1), $digitos, '0', STR_PAD_LEFT);
+}

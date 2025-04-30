@@ -22,6 +22,47 @@
                 </div>
             </section>
         </header>
+        <section>
+            <section></section>
+            <form action="../php/verdadeirofalsoconfiguracao.php" method="POST">
+                <header>
+                    <h3>Insira as informações do jogo</h3>
+                </header>
+                <section>
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" required placeholder="Defina um título para o seu jogo">
+                    <label for="descricao">Descrição</label>
+                    <textarea rows="2" cols="10" id="decricao" name="descricao" placeholder="Defina uma descrição para o seu jogo"></textarea>
+                    <label for="dificuldade">Dificuldade</label>
+                    <select id="dificuldade" name="dificuldade" title="Defina a dificuldade do seu jogo" required>
+                        <option value="facil">Fácil</option>
+                        <option value="medio">Médio</option>
+                        <option value="dificil">Difícil</option>
+                    </select>
+                    <label for="publicar">Deseja publicar seu jogo?</label>
+                    <select id="publicar" name="publicar" title="Publique ou apenas salve seu jogo. Se decidir publicar, ele ficará acessível para os outros usuários" required>
+                        <option value="sim">Sim, desejo publicar</option>
+                        <option value="nao">Não, somente quero salvar</option>
+                    </select>
+                </section>
+                <footer>
+                    <button type="submit">Enviar</button>
+                </footer>
+            </form>
+        </section>
     </main>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const insert = urlParams.get('insert');
+        if(insert == 'True'){
+            alert("Informações inseridas com sucesso1");
+        }
+        const error = urlParams.get('error');
+        if(error == 'insertfailed'){
+            alert("Falha ao inserir informações. Tente novamente");
+        }else if(error == 'valuesempty'){
+            alert('Por favor preencha todos os campos e tente novamente');
+        }
+    </script>
 </body>
 </html>
