@@ -51,11 +51,15 @@
     </main>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const mensagem = urlParams.get('quest');
-        if(mensagem == "salvada"){
+        const inserir_db = urlParams.get('insert');
+        const error = urlParams.get('error');
+        if(inserir_db == "True"){
             alert("Pergunta salvada com sucesso!")
-        } else if(mensagem == "!salvada"){
-            alert("Erro ao salvar a pergunta. Tente novamente. Se o erro persistir, contate o suporte.")
+        }
+        if(error == "insertcontentfailed0"){
+            alert("Erro ao inserir o conteúdo do jogo no banco de dados. Tente novamente")
+        }else if(error == "valuesempty"){
+            alert("Os campos estão vazios. Por favor preencha corretamente")
         }
     </script>
 </body>

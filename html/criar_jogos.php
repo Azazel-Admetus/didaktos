@@ -6,17 +6,25 @@ if(isset($_GET['tipo'])){
     $token = gerarToken($tipo_jogo);
     //armazenar o token no cookie com validade de 24h
     setcookie('id_jogo', $token, time() + 86400, '/');
+    require_once "../php/conn.php";
+    $stmt = $conn->prepare('INSERT INTO jogos (token) VALUES (:token)');
+    $stmt->bindValue(':token', $token);
+
     switch ($tipo_jogo){
         case 'quiz':
+            $stmt->execute();
             header('Location:quiz.html');
             break;
         case 'vf':
+            $stmt->execute();
             header('Location:verdadeirofalso.html');
             break;
         case 'objeto':
+            $stmt->execute();
             header('Location:jogo_objeto.html');
             break;
         case 'animal':
+            $stmt->execute();
             header('Location:jogo_animal.html');
             break;
         default:
