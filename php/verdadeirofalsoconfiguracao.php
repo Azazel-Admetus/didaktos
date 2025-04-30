@@ -17,10 +17,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $stmt->bindValue(':titulo',  $titulo);
         $stmt->bindValue(':descricao', $descricao);
         $stmt->bindValue(':dificuldade', $dificuldade);
+        $stmt->bindValue(':token_jogo', $token);
         $stmt->bindValue(':autor', $username);
         if($stmt->execute()){
             if($publicar == 'sim'){
-                $stmt = $conn->prepare('UPDATE jogos SET status = concluido WHERE token = :token');
+                $stmt = $conn->prepare("UPDATE jogos SET status = 'concluído' WHERE token = :token");
                 $stmt->bindValue(':token', $token);
                 $stmt->execute();
             };
