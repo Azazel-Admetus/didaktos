@@ -1,3 +1,40 @@
+<?php
+require_once "../php/conn.php";
+$status = 'concluído';
+$jogos_feed = [];
+$stmt = $conn->prepare("SELECT token, pin FROM jogos WHERE status = :status");
+$stmt->bindValue(':status', $status);
+if($stmt->execute()){
+    $tokens = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if(empty($tokens)){
+        header('Location:feed.php?error=sem+conteudo');
+        exit;
+    }
+    foreach ($tokens as $linha){
+        $token = $linha['token'];
+        $pin = $linha['pin'];
+       
+        $stmt2 = $conn->prepare("SELECT titulo, descricao, dificuldade, autor FROM vf_config WHERE token_jogo = :token");
+        $stmt2->bindValue(':token', $token);
+        if($stmt2->execute()){
+            $jogos = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($jogos as $jogo){
+                $jogos_feed[] = [
+                    'titulo' => $jogo['titulo'],
+                    'descricao' => $jogo['descricao'],
+                    'dificuldade' => $jogo['dificuldade'],
+                    'autor' => $jogo['autor']
+                ];
+            }
+        }
+    }
+} else{
+    echo "erro ao buscar dados.";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -27,10 +64,26 @@
         </header>
         <h2>Explore os jogos criados pelos Usuários </h2>
         <section class="feed">
-            <?php
-            //incluindo o arquivo php para gerar os cards 
-            require_once "../php/explorar.php";
+            <?php foreach($jogos_feed as $jogo):
+                $dificuldade = strtolower(trim($jogo['dificuldade']));
+                $classe_dificuldade = match($dificuldade){
+                    'facil' => 'facil', 
+                    'medio' => 'medio', 
+                    'dificil' => 'dificil',
+                    default => 'desconhecido'
+                };
             ?>
+               <div class="card" data-dificuldade="<?= htmlspecialchars(strtolower($jogo['dificuldade'])) ?>">
+                    <header>
+                        <img src="../img/" alt="imagem do jogo">
+                    </header>
+                    <section>
+                        <h2 class="titulo"><?= htmlspecialchars($jogo['titulo']) ?></h2>
+                        <p class="descricao"><?= htmlspecialchars($jogo['descricao']) ?></p>
+                        <p class="autor">Autor: <?= htmlspecialchars($jogo['autor']) ?></p>
+                    </section>
+                </div>
+            <?php endforeach; ?>
         </section>
         <footer></footer>
     </main>

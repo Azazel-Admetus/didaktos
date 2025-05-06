@@ -19,3 +19,20 @@ document.addEventListener('click', (e) => {
         });
     }
 });
+document.querySelectorAll('.card').forEach(card => {
+    const dificuldade = card.dataset.dificuldade;
+
+    switch (dificuldade) {
+        case 'fácil':
+            card.style.borderColor = 'green';
+            break;
+        case 'médio':
+            card.style.borderColor = 'yellow';
+            break;
+        case 'difícil':
+            card.style.borderColor = 'red';
+            break;
+        default:
+            card.style.borderColor = 'gray';
+    }
+});

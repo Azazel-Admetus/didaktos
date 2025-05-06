@@ -72,7 +72,7 @@ li:hover{
     background-color: rgba(127, 175, 207, 0.533);
     border: solid 2px rgba(68, 92, 109, 0.533);
 }
-/* estilizando os jogos */
+estilizando os jogos */
 h2{
     font-family: "Lato", serif;    
     font-weight: 700;
@@ -140,4 +140,19 @@ h2{
     position: absolute;
     left:150px;
     top: 40px;
+}
+.card.facil {
+    border-color: green;
+}
+
+.card.medio {
+    border-color: orange;
+}
+
+.card.dificil {
+    border-color: red;
+}
+
+.card.desconhecido {
+    border-color: gray;
 }
