@@ -1,3 +1,33 @@
+<?php
+require_once "../php/conn.php";
+session_start();
+$user_id = $_SESSION['user_id'];
+$jogos_usuarios = [];
+$stmt = $conn->prepare("SELECT token, pin FROM jogos WHERE user_id = :user_id");
+$stmt->bindValue(':user_id', $user_id);
+if($stmt->execute()){
+    $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($dados as $dado){
+        $token = $dado['token'];
+        $pin = $dado['pin'];
+        $stmt2 = $conn->prepare("SELECT titulo, descricao FROM vf_config WHERE token_jogo = :token_jogo");
+        $stmt2->bindValue(':token_jogo', $token);
+        if($stmt2->execute()){
+            $info = $stmt2->fetch(PDO::FETCH_ASSOC);
+            if($info){
+                $jogos_usuarios[] = [
+                    'pin' => $pin,
+                    'titulo' => $info['titulo'],
+                    'descricao' => $info['descricao'],
+                    'token' => $token
+                ];
+            }
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,8 +58,19 @@
             <header>
                 <h2>Meus Jogos</h2>
             </header>
-            <section>
-
+            <section class="feed">
+                <?php foreach($jogos_usuarios as $jogo): ?>
+                    <div class="card">
+                        <header>
+                            <img src="../img/" alt="imagem do jogo">
+                        </header>
+                        <section>
+                            <h2 class="titulo"><?= htmlspecialchars($jogo['titulo']) ?></h2>
+                            <p class="descricao"><?= htmlspecialchars($jogo['descricao']) ?></p>
+                            <p class="autor">Pin: <?= htmlspecialchars($jogo['pin']) ?> | Token: <?= $jogo['token']?></p>
+                        </section>
+                    </div>
+                <?php endforeach; ?>
             </section>
             <footer></footer>
         </section>

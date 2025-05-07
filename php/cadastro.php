@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':pass', $pass);
             if ($stmt->execute()){
-                header("Location: ../html/php.html");
+                header("Location: ../html/home.php");
                 exit();
             }else {
                 echo "Erro ao cadastrar: " . $stmt->errorInfo()[2];

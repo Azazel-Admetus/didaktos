@@ -121,3 +121,24 @@ a:hover {
 }
 
 /* vamos ao meio do site */
+.feed{
+    background-color: #e9e9e9;
+    margin: 10px;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+}
+.card{
+    border-radius: 30px;
+    border: 2px solid #a9a9a9;
+    width: 400px;
+    height: 200px;
+    padding: 50px 50px;
+    margin: 20px;
+    position: relative;
+
+}
+.card:hover{
+    border-color: #42d0fb;
+}
