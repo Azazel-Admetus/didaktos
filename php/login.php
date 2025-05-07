@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 session_start();
                 $_SESSION['email'] = $emailuser['email'];
                 $_SESSION['user_id'] = $emailuser['id'];
-                header('Location:../html/home.html');
+                header('Location:../html/home.php');
                 exit();
             } else{
                 echo "Senha incorreta";

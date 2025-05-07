@@ -24,6 +24,15 @@
                 </div>
             </section>
         </header>
+        <section>
+            <header>
+                <h2>Meus Jogos</h2>
+            </header>
+            <section>
+
+            </section>
+            <footer></footer>
+        </section>
      
 
     </main>

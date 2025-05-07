@@ -7,7 +7,7 @@ $stmt->bindValue(':status', $status);
 if($stmt->execute()){
     $tokens = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if(empty($tokens)){
-        header('Location:feed.php?error=sem+conteudo');
+        echo "Conteúdo não encontrado. Tente novamente mais tarde ou contate o serviço de suporte ao cliente.";
         exit;
     }
     foreach ($tokens as $linha){

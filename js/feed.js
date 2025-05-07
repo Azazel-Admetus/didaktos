@@ -36,3 +36,10 @@ document.querySelectorAll('.card').forEach(card => {
             card.style.borderColor = 'gray';
     }
 });
+
+const urlParams = new URLSearchParams(window.location.search);
+const erro = urlParams.get('error');
+if(erro === 'sem_jogos'){
+    alert('Conteúdo não encontrado. Tente novamente mais tarde ou contate o serviço de suporte ao cliente.');
+    
+}

@@ -8,9 +8,12 @@ if(isset($_GET['tipo'])){
     setcookie('id_jogo', $token, time() + 86400, '/');
     require_once "../php/conn.php";
     $pin = gerarPin();
-    $stmt = $conn->prepare('INSERT INTO jogos (token, pin) VALUES (:token, :pin)');
+    session_start();
+    $user_id = $_SESSION['user_id'];
+    $stmt = $conn->prepare('INSERT INTO jogos (token, pin, user_id) VALUES (:token, :pin, :user_id)');
     $stmt->bindValue(':pin', $pin);
     $stmt->bindValue(':token', $token);
+    $stmt->bindValue(':user_id', $user_id);
 
     switch ($tipo_jogo){
         case 'quiz':
