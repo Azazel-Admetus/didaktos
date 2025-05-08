@@ -26,7 +26,7 @@
         <section>
             <section>
                 <h2>Ao clicar no botão de salvar, as perguntas criadas e suas respostas definidas são armazenadas. Para poder publicar o jogo, você deve definir as configurações dele acessando o link abaixo</h2>
-                <a href="#">Configurações</a>
+                <a href="quiz.configuracao.html">Configurações</a>
             </section>
             <form action="../php/armazenar_quiz.php" method='post'>
                 <header>
@@ -44,83 +44,35 @@
                 <label for="alternativa4">Alternatica D</label>
                 <input type="text" id="alternativa4" name="alternativa4"  placeholder="Defina uma outra possível resposta">
          
-<!--                 
+                
                 <h3>Escolha a alternativa correta</h3>
                 <p>O máximo de alternativas corretas que podem ser definidas é 3
                 </p>
-                <input type="radio" name="alternativas" value="A">A
-                <input type="radio" name="alternativas" value="B">B
-                <input type="radio" name="alternativas" value="C">C
-                <input type="radio" name="alternativas" value="D">D -->
+                <input type="radio" name="resposta" value="A">A
+                <input type="radio" name="resposta" value="B">B
+                <input type="radio" name="resposta" value="C">C
+                <input type="radio" name="resposta" value="D">D
                 <div id="checkbox-container"></div>
                 <button type="submit">Salvar</button>
             </form>
         </section>
     </main>
     <script>
-        const alternativas = [
-            document.getElementById("alternativa1"),
-            document.getElementById("alternativa2"),
-            document.getElementById("alternativa3"),
-            document.getElementById("alternativa4")
-        ];
-        const form = document.querySelector("form");
-
-        const radiosContainer = document.getElementById("checkbox-container");
-
-        let checkboxes = [];
-        function atualizarCheckboxes (){
-            radiosContainer.innerHTML = "<h3>Escolha a(s) alternativa(s) correta(s)</h3><p>Você poderá escolher de 1 até três respostas, dependendo da quantidade de alternativas preenchidas</p>";
-            checkboxes = [];
-            let preenchidas = 0;
-            alternativas.forEach((alt, index) =>{
-                if (alt.value.trim() !== ""){
-                    preenchidas++;
-                    const letra = String.fromCharCode(65 + index);
-                    const checkbox = document.createElement("input");
-                    checkbox.type = "checkbox";
-                    checkbox.name = "alternativas_certas[]";
-                    checkbox.value = letra;
-                    checkbox.id = "checkbox" + letra;
-                    
-                    const label = document.createElement("label");
-                    label.htmlFor = checkbox.id;
-                    label.textContent = letra;
-                    checkboxes.push(checkbox);
-                    radiosContainer.appendChild(checkbox);
-                    radiosContainer.appendChild(label);
-                }
-            });
-// alterei o valor inicial do limite para 0. E coloquei mais verificações no preenchidas para impedir do usuário quando tiver somente uma alternativa válida conseguir preencher ela.
-            let limite = 0;
-            if(preenchidas === 1) limite = 0;
-            if(preenchidas === 2) limite = 1;
-            if(preenchidas === 3) limite = 2;
-            if(preenchidas >= 4) limite = 3;
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener("change", (event) => {
-                    const marcados = checkboxes.filter(c => c.checked);
-                    if (marcados.length >= limite){
-                        event.preventDefault();
-                        checkbox.checked = false;
-                        // coloquei uma verificação nos alertas para falar ao usuário que precisa ter no mínimo duas alternativas válidas.
-                        if(limite == 0){
-                            alert("Você precisa ter no mínimo duas alternativas válidas");
-                        }else{
-                            alert(`Você só pode escolher até ${limite } alternativa${limite > 1 ? 's' : ''} correta${limite > 1 ? 's' : ''}.`);                 
-                        }
-                        
-                    }
-                });
-              
-            });
-
+        const url = new URLSearchParams(window.location.search);
+        const insert = url.get('insert');
+        const erro = url.get('error');
+        if(insert === 'true'){
+            alert("Informações salvadas com sucesso!");
+        }
+        if(erro === "inser_failed"){
+            alert("Falha ao salvar o conteúdo. Por favor tente novamente.");
+        } else if (erro === "emptyquest"){
+            alert("Por favor preencha o campo de pergunta.");
+        }else{
+            alert("Erro. Tente novamente mais tarde. Se o erro persistir, contate o serviço de suporte ao cliente.");
         }
 
-        alternativas.forEach(input =>{
-            input.addEventListener("input", atualizarCheckboxes)
-        });
-        atualizarCheckboxes();
+     
     </script>
   
 </body>

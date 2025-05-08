@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/quiz_config.css">
+    <title>Configurações - QUIZ</title>
+</head>
+<body>
+    <main>
+        <header id="cabecalho">
+            <h1>DIDAKTOS</h1>
+            <section id="secao">
+                <a href="suporte.html">SUPORTE</a>
+                <div id="menu">
+                    <a id="perfil" href=""></a>
+                    <div class="menucontent" >
+                        <h4>User</h4>
+                        <!-- <a id="config" href="#"></a> -->
+                        <a id="sair" href="index.html"></a>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <section>
+            <section></section>
+            <form action="../php/verdadeirofalsoconfiguracao.php" method="POST">
+                <header>
+                    <h3>Insira as informações do jogo</h3>
+                </header>
+                <section>
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" required placeholder="Defina um título para o seu jogo">
+                    <label for="descricao">Descrição</label>
+                    <textarea rows="2" cols="10" id="decricao" name="descricao" placeholder="Defina uma descrição para o seu jogo"></textarea>
+                    <label for="dificuldade">Dificuldade</label>
+                    <select id="dificuldade" name="dificuldade" title="Defina a dificuldade do seu jogo" required>
+                        <option value="facil">Fácil</option>
+                        <option value="medio">Médio</option>
+                        <option value="dificil">Difícil</option>
+                    </select>
+                    <label for="publicar">Deseja publicar seu jogo?</label>
+                    <select id="publicar" name="publicar" title="Publique ou apenas salve seu jogo. Se decidir publicar, ele ficará acessível para os outros usuários" required>
+                        <option value="sim">Sim, desejo publicar</option>
+                        <option value="nao">Não, somente quero salvar</option>
+                    </select>
+                </section>
+                <footer>
+                    <button type="submit">Enviar</button>
+                </footer>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
