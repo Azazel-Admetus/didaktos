@@ -51,5 +51,19 @@
             </form>
         </section>
     </main>
+    <script>
+        const url = new URLSearchParams(window.location.search);
+        const insert = url.get('insert');
+        const empty = url.get('empty');
+        if(insert === 'true'){
+            alert('Informações salvadas com sucesso!');
+        }else if (insert === 'failed'){
+            alert('Falha ao salvar as informações. Tente novamente.');
+        };
+
+        if(empty === 'true'){
+            alert('Por favor preencha os campos obrigatórios.');
+        };
+    </script>
 </body>
 </html>

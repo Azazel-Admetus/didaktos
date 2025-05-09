@@ -63,7 +63,7 @@ if($stmt->execute()){
             </section>
         </header>
         <h2>Explore os jogos criados pelos Usuários </h2>
-        <section class="feed">
+        <a href="game.html?game=<?= htmlspecialchars($pin)?>" class="feed">
             <?php foreach($jogos_feed as $jogo):
                 $dificuldade = strtolower(trim($jogo['dificuldade']));
                 $classe_dificuldade = match($dificuldade){

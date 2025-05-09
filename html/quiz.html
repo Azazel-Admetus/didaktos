@@ -61,17 +61,14 @@
         const url = new URLSearchParams(window.location.search);
         const insert = url.get('insert');
         const erro = url.get('error');
-        if(insert === 'true'){
+        if(insert === 'True'){
             alert("Informações salvadas com sucesso!");
         }
         if(erro === "inser_failed"){
             alert("Falha ao salvar o conteúdo. Por favor tente novamente.");
         } else if (erro === "emptyquest"){
             alert("Por favor preencha o campo de pergunta.");
-        }else{
-            alert("Erro. Tente novamente mais tarde. Se o erro persistir, contate o serviço de suporte ao cliente.");
         }
-
      
     </script>
   
