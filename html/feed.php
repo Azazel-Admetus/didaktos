@@ -24,7 +24,8 @@ if($stmt->execute()){
                     'titulo' => $jogo['titulo'],
                     'descricao' => $jogo['descricao'],
                     'dificuldade' => $jogo['dificuldade'],
-                    'autor' => $jogo['autor']
+                    'autor' => $jogo['autor'],
+                    'pin' => $pin
                 ];
             }
         }
@@ -63,7 +64,7 @@ if($stmt->execute()){
             </section>
         </header>
         <h2>Explore os jogos criados pelos Usuários </h2>
-        <a href="game.html?game=<?= htmlspecialchars($pin)?>" class="feed">
+        <section  class="feed">
             <?php foreach($jogos_feed as $jogo):
                 $dificuldade = strtolower(trim($jogo['dificuldade']));
                 $classe_dificuldade = match($dificuldade){
@@ -73,16 +74,18 @@ if($stmt->execute()){
                     default => 'desconhecido'
                 };
             ?>
-               <div class="card" data-dificuldade="<?= htmlspecialchars(strtolower($jogo['dificuldade'])) ?>">
-                    <header>
-                        <img src="../img/" alt="imagem do jogo">
-                    </header>
-                    <section>
-                        <h2 class="titulo"><?= htmlspecialchars($jogo['titulo']) ?></h2>
-                        <p class="descricao"><?= htmlspecialchars($jogo['descricao']) ?></p>
-                        <p class="autor">Autor: <?= htmlspecialchars($jogo['autor']) ?></p>
-                    </section>
-                </div>
+                <a href="game.php?game=<?= htmlspecialchars($jogo['pin'])?>">
+                    <div class="card" data-dificuldade="<?= htmlspecialchars(strtolower($jogo['dificuldade'])) ?>">
+                        <header>
+                            <img src="../img/" alt="imagem do jogo">
+                        </header>
+                        <section>
+                            <h2 class="titulo"><?= htmlspecialchars($jogo['titulo']) ?></h2>
+                            <p class="descricao"><?= htmlspecialchars($jogo['descricao']) ?></p>
+                            <p class="autor">Autor: <?= htmlspecialchars($jogo['autor']) ?></p>
+                        </section>
+                    </div>
+                </a>
             <?php endforeach; ?>
         </section>
         <footer></footer>

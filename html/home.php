@@ -60,16 +60,18 @@ if($stmt->execute()){
             </header>
             <section class="feed">
                 <?php foreach($jogos_usuarios as $jogo): ?>
-                    <div class="card">
-                        <header>
-                            <img src="../img/" alt="imagem do jogo">
-                        </header>
-                        <section>
-                            <h2 class="titulo"><?= htmlspecialchars($jogo['titulo']) ?></h2>
-                            <p class="descricao"><?= htmlspecialchars($jogo['descricao']) ?></p>
-                            <p class="autor">Pin: <?= htmlspecialchars($jogo['pin']) ?> | Token: <?= $jogo['token']?></p>
-                        </section>
-                    </div>
+                    <a href="game.html?game=<?= htmlspecialchars($jogo['pin'])?>">
+                        <div class="card">
+                            <header>
+                                <img src="../img/" alt="imagem do jogo">
+                            </header>
+                            <section>
+                                <h2 class="titulo"><?= htmlspecialchars($jogo['titulo']) ?></h2>
+                                <p class="descricao"><?= htmlspecialchars($jogo['descricao']) ?></p>
+                                <p class="autor">Token: <?= htmlspecialchars($jogo['token']) ?></p>
+                            </section>
+                        </div>
+                    </a>
                 <?php endforeach; ?>
             </section>
             <footer></footer>
