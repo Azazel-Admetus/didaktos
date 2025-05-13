@@ -60,7 +60,7 @@ if($stmt->execute()){
             </header>
             <section class="feed">
                 <?php foreach($jogos_usuarios as $jogo): ?>
-                    <a href="game.html?game=<?= htmlspecialchars($jogo['pin'])?>">
+                    <a href="game.php?game=<?= htmlspecialchars($jogo['pin'])?>">
                         <div class="card">
                             <header>
                                 <img src="../img/" alt="imagem do jogo">
