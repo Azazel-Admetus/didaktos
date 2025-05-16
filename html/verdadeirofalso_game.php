@@ -48,21 +48,23 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/verdadeirofalso_game.css">
     <title>Verdadeiro ou Falso?</title>
 </head>
 <body>
     <section id='content_jogo'>
         <p id='pergunta'></p>
-        <button onclick="responder('verdadeiro')">verdadeiro</button>
-        <button onclick="responder('falso')" >falso</button>
+        <button id="btn_verdadeiro">verdadeiro</button>
+        <button id="btn_falso" >falso</button>
+        <div id="temporizador">10</div>
     </section>
     <section id='config_jogo'></section>
     <script>
     document.addEventListener("DOMContentLoaded", () =>{
         const perguntas = <?php echo json_encode($conteudo_jogo); ?>;
-        const perguntaElemento = document.querySelector("#content_jogo p");
-        const botaoVerdadeiro = document.querySelectorAll("#content_jogo button")[0];
-        const botaoFalso = document.querySelectorAll("#content_jogo button")[1];
+        const perguntaElemento = document.querySelector("#pergunta");
+        const botaoVerdadeiro = document.querySelector("#btn_verdadeiro");
+        const botaoFalso = document.querySelector("#btn_falso");
         const configJogo = document.querySelector("#config_jogo");
 
         let indiceAtual = 0;
@@ -84,6 +86,12 @@ if($stmt->execute()){
                 mostrarResultado();
                 return;
             }
+            let tempo = tempoPorPergunta;
+            const temporizadorElemento = document.getElementById("temporizador");
+            temporizadorElemento.textContent = tempo;
+
+
+
             perguntaElemento.textContent =  perguntas[indiceAtual].pergunta;
 
             botaoVerdadeiro.disabled =false;
@@ -91,23 +99,32 @@ if($stmt->execute()){
 
             botaoVerdadeiro.classList.remove("selecionado");
             botaoFalso.classList.remove("selecionado");
+            if(temporizador) clearInterval(temporizador);
+            temporizador = setInterval(() => {
+                tempo --;
+                temporizadorElemento.textContent = tempo;
+                if(tempo <= 0){
+                    clearInterval(temporizador);
+                    if(!respostasUsuarios[indiceAtual]){
+                        registrarResposta("sem resposta");
+                    }
+                    indiceAtual ++;
+                    mostrarPergunta();
+                }
+            }, 1000);
             
-            temporizador = setTimeout(()=>{
-                registrarResposta("sem resposta");
-            }, tempoPorPergunta * 1000);
         }
         function registrarResposta(respostaUsuario){
-            clearTimeout(temporizador);
             const respostaCorreta = perguntas[indiceAtual].resposta.toLowerCase();
             const acertou = respostaUsuario === respostaCorreta;
-            respostaUsuario.push({
+            respostasUsuarios[indiceAtual] = {
                 pergunta: perguntas[indiceAtual].pergunta, 
                 respostaCorreta,
                 respostaUsuario, 
                 acertou
-            });
-            indiceAtual++;
-            mostrarPergunta();
+            };
+            botaoVerdadeiro.disabled = true;
+            botaoFalso.disabled  = true;
         }
         function aplicarEfeitoVisual(botao){
             botao.classList.add("selecionado");
@@ -122,8 +139,8 @@ if($stmt->execute()){
         botaoFalso.addEventListener("click", () => aplicarEfeitoVisual(botaoFalso));
 
         function mostrarResultado(){
-            const corretas = respostaUsuario.filter(r => r.acertou).length;
-            const total = respostaUsuario.length;
+            const corretas = respostasUsuarios.filter(r => r.acertou).length;
+            const total = respostasUsuarios.length;
 
             document.getElementById("content_jogo").innerHTML = `
                 <h2>Fim do jogo!</h2>
