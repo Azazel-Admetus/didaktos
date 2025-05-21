@@ -20,12 +20,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $stmt2->bindValue(':autor', $userid);
         $stmt2->bindValue(':token', $token);
         if($stmt2->execute()){
-            header('Location:../html/quiz.configuracao.html?insert=true');
-             if($publicar == 'sim'){
+             if($publicar === 'sim'){
                 $stmt = $conn->prepare("UPDATE jogos SET status = 'concluído' WHERE token = :token");
                 $stmt->bindValue(':token', $token);
                 $stmt->execute();
             };
+            header('Location:../html/quiz.configuracao.html?insert=true');
             exit;
         }else{
             header('Location: ../html/quiz.configuracao.html?insert=failed');

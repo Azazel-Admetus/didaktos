@@ -2,36 +2,27 @@
 require_once "../php/conn.php";
 $status = 'concluído';
 $jogos_feed = [];
-$stmt = $conn->prepare("SELECT token, pin FROM jogos WHERE status = :status");
-$stmt->bindValue(':status', $status);
-if($stmt->execute()){
-    $tokens = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if(empty($tokens)){
-        echo "Conteúdo não encontrado. Tente novamente mais tarde ou contate o serviço de suporte ao cliente.";
-        exit;
-    }
-    foreach ($tokens as $linha){
-        $token = $linha['token'];
-        $pin = $linha['pin'];
-       
-        $stmt2 = $conn->prepare("SELECT titulo, descricao, dificuldade, autor FROM vf_config WHERE token_jogo = :token");
-        $stmt2->bindValue(':token', $token);
-        if($stmt2->execute()){
-            $jogos = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
-            foreach ($jogos as $jogo){
-                $jogos_feed[] = [
-                    'titulo' => $jogo['titulo'],
-                    'descricao' => $jogo['descricao'],
-                    'dificuldade' => $jogo['dificuldade'],
-                    'autor' => $jogo['autor'],
-                    'pin' => $pin
-                ];
-            }
-        }
+$stmt_vf = $conn->query("SELECT token_jogo AS token, titulo, descricao, dificuldade, autor FROM vf_config");
+$vf_jogos = $stmt_vf->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt_quiz= $conn->query("SELECT token_jogo AS token, titulo, descricao, dificuldade, autor FROM quiz_config");
+$quiz_jogos = $stmt_quiz->fetchAll(PDO::FETCH_ASSOC);
+
+
+$todos_jogos = array_merge($vf_jogos, $quiz_jogos);
+
+
+foreach($todos_jogos as $jogo){
+    $stmt_pin = $conn->prepare("SELECT pin FROM jogos WHERE token = :token AND status = 'concluído'");
+    $stmt_pin->bindValue(':token', $jogo['token']);
+    $stmt_pin->execute();
+    $pin_result = $stmt_pin->fetch(PDO::FETCH_ASSOC);
+
+    if($pin_result){
+        $jogos_feed[] = array_merge($jogo, ['pin'=> $pin_result['pin']]);
     }
-} else{
-    echo "erro ao buscar dados.";
+
 }
 
 ?>
@@ -65,28 +56,32 @@ if($stmt->execute()){
         </header>
         <h2>Explore os jogos criados pelos Usuários </h2>
         <section  class="feed">
-            <?php foreach($jogos_feed as $jogo):
-                $dificuldade = strtolower(trim($jogo['dificuldade']));
-                $classe_dificuldade = match($dificuldade){
-                    'facil' => 'facil', 
-                    'medio' => 'medio', 
-                    'dificil' => 'dificil',
-                    default => 'desconhecido'
-                };
-            ?>
-                <a href="game.php?game=<?= htmlspecialchars($jogo['pin'])?>">
-                    <div class="card" data-dificuldade="<?= htmlspecialchars(strtolower($jogo['dificuldade'])) ?>">
-                        <header>
-                            <img src="../img/" alt="imagem do jogo">
-                        </header>
-                        <section>
-                            <h2 class="titulo"><?= htmlspecialchars($jogo['titulo']) ?></h2>
-                            <p class="descricao"><?= htmlspecialchars($jogo['descricao']) ?></p>
-                            <p class="autor">Autor: <?= htmlspecialchars($jogo['autor']) ?></p>
-                        </section>
-                    </div>
-                </a>
-            <?php endforeach; ?>
+            <?php if(empty($jogos_feed)): ?>
+                <p class="sem-jogos">Nenhum jogo encontrado no momento.</p>
+             <?php else: ?>
+                <?php foreach($jogos_feed as $jogo):
+                    $dificuldade = strtolower(trim($jogo['dificuldade']));
+                    $classe_dificuldade = match($dificuldade){
+                        'facil' => 'facil', 
+                        'medio' => 'medio', 
+                        'dificil' => 'dificil',
+                        default => 'desconhecido'
+                    };
+                ?>
+                    <a href="game.php?game=<?= htmlspecialchars($jogo['pin'])?>">
+                        <div class="card" data-dificuldade="<?= htmlspecialchars(strtolower($jogo['dificuldade'])) ?>">
+                            <header>
+                                <img src="../img/" alt="imagem do jogo">
+                            </header>
+                            <section>
+                                <h2 class="titulo"><?= htmlspecialchars($jogo['titulo']) ?></h2>
+                                <p class="descricao"><?= htmlspecialchars($jogo['descricao']) ?></p>
+                                <p class="autor">Autor: <?= htmlspecialchars($jogo['autor']) ?></p>
+                            </section>
+                        </div>
+                    </a>
+                <?php endforeach; ?>               
+            <?php endif; ?>
         </section>
         <footer></footer>
     </main>
