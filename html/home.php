@@ -3,27 +3,26 @@ require_once "../php/conn.php";
 session_start();
 $user_id = $_SESSION['user_id'];
 $jogos_usuarios = [];
-$stmt = $conn->prepare("SELECT token, pin FROM jogos WHERE user_id = :user_id");
+
+$stmt = $conn->prepare("
+    SELECT j.pin, j.token, c.titulo, c.descricao
+    FROM jogos j
+    INNER JOIN vf_config c ON j.token = c.token_jogo
+    WHERE j.user_id = :user_id
+
+    UNION
+
+    SELECT j.pin, j.token, q.titulo, q.descricao
+    FROM jogos j
+    INNER JOIN quiz_config q ON j.token = q.token_jogo
+    WHERE j.user_id = :user_id
+
+");
 $stmt->bindValue(':user_id', $user_id);
+
 if($stmt->execute()){
-    $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($dados as $dado){
-        $token = $dado['token'];
-        $pin = $dado['pin'];
-        $stmt2 = $conn->prepare("SELECT titulo, descricao FROM vf_config WHERE token_jogo = :token_jogo");
-        $stmt2->bindValue(':token_jogo', $token);
-        if($stmt2->execute()){
-            $info = $stmt2->fetch(PDO::FETCH_ASSOC);
-            if($info){
-                $jogos_usuarios[] = [
-                    'pin' => $pin,
-                    'titulo' => $info['titulo'],
-                    'descricao' => $info['descricao'],
-                    'token' => $token
-                ];
-            }
-        }
-    }
+    $jogos_usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
 }
 ?>
 
