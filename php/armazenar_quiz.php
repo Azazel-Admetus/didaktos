@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD']){
         $stmt->bindValue(':altB', $alternativa_2);
         $stmt->bindValue(':altC', $alternativa_3);
         $stmt->bindValue(':altD', $alternativa_4);
-        $stmt->bindValue(':resposta', $resposta);
+        $stmt->bindValue(':resposta', $resposta_correta);
         $stmt->bindValue(':token', $token);
         if($stmt->execute()){
             header('Location:../html/quiz.html?insert=True');

@@ -31,7 +31,7 @@
             <form action="../php/armazenar_quiz.php" method='post'>
                 <header>
                     <h2>Crie um quiz educativo</h2>
-                    <p>É obrigatório que se tenha no mínimo duas alternativas com uma delas sendo correta. Não é obrigatório definir as 5 alternativas. Pode deixá-las em branco, no jogo elas não aparecerão</p>
+                    <p>É obrigatório definir as quatro alternativas para esta pergunta</p>
                 </header>
                 <label for="pergunta" >Pergunta</label>
                 <input type="text" id="pergunta" name="pergunta" placeholder="Crie sua pergunta para o quiz" required>
@@ -40,18 +40,18 @@
                 <label for="alternativa2">Alternativa B</label>
                 <input type="text" id="alternativa2" name="alternativa2" placeholder="Defina uma outra possível resposta" required>
                 <label for="alternativa3" >Alternativa C</label>
-                <input type="text" id="alternativa3" name="alternativa3"  placeholder="Defina uma outra possível resposta">
-                <label for="alternativa4">Alternatica D</label>
-                <input type="text" id="alternativa4" name="alternativa4"  placeholder="Defina uma outra possível resposta">
+                <input type="text" id="alternativa3" name="alternativa3"  placeholder="Defina uma outra possível resposta" required>
+                <label for="alternativa4">Alternativa D</label>
+                <input type="text" id="alternativa4" name="alternativa4"  placeholder="Defina uma outra possível resposta" required>
          
                 
                 <h3>Escolha a alternativa correta</h3>
-                <p>O máximo de alternativas corretas que podem ser definidas é 3
+                <p>Escolha somente uma alternativa como correta
                 </p>
-                <input type="radio" name="resposta" value="A">A
-                <input type="radio" name="resposta" value="B">B
-                <input type="radio" name="resposta" value="C">C
-                <input type="radio" name="resposta" value="D">D
+                <label><input type="radio" name="resposta" value="A">A</label>
+                <label><input type="radio" name="resposta" value="B">B</label>
+                <label><input type="radio" name="resposta" value="C">C</label>
+                <label><input type="radio" name="resposta" value="D">D</label>
                 <div id="checkbox-container"></div>
                 <button type="submit">Salvar</button>
             </form>

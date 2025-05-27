@@ -2,11 +2,13 @@
 require_once "../php/conn.php";
 $pin = $_GET['id'] ?? null;
 //pegando o token no db
-
 $stmt = $conn->prepare("SELECT token FROM jogos WHERE pin = :pin");
 $stmt->bindValue(':pin', $pin);
 if($stmt->execute()){
     $token = $stmt->fetch(PDO::FETCH_ASSOC);
+    if(!$token){
+        die("Nenhum jogo encontrado com esse PIN.");
+    }
     //pegando as configurações dos jogos
     $stmt2= $conn->prepare("SELECT titulo, descricao, dificuldade, autor FROM vf_config WHERE token_jogo = :token ");
     $stmt2->bindValue(':token', $token['token']);
