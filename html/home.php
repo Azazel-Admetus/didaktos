@@ -48,7 +48,7 @@ if($stmt->execute()){
                     <div class="menucontent" >
                         <h4>User</h4>
                         <!-- <a id="config" href="config.html"></a> -->
-                        <a id="sair" href="index.html"></a>
+                        <a id="sair" href="../php/logout.php"></a>
                     </div>
                 </div>
             </section>
