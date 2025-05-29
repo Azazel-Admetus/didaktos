@@ -22,7 +22,7 @@ $stmt->bindValue(':user_id', $user_id);
 
 if($stmt->execute()){
     $jogos_usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
 }
 ?>
 

@@ -112,10 +112,8 @@ a:hover{
 span{
     color: #64b5f6;
 }
-
-#secao-main{
+#secao-main header{
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    margin-top: 100px;
 }

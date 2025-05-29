@@ -1,0 +1,152 @@
+[33mcommit 629dbd6c71e65b2b4fdc5480f327bfd5478feb64[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mback[m[33m, [m[1;31morigin/back[m[33m)[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Apr 24 12:59:17 2025 -0400
+
+    fix:
+
+[33mcommit b04c5dc599cd6bb3268e20ee27e4a0776ed79803[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Apr 24 08:37:24 2025 -0400
+
+    : Adicionei uma mensagem explicativa nas linhas 45 e 39
+
+[33mcommit b23e789a8febe5568bcf80a8bbc8a3c5fab4c5b5[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Apr 24 08:26:41 2025 -0400
+
+    Chore: Comentei o link #config que estava dentro do .menucontent. Dessa forma ele não ficará visível. Entretanto não o apague. Provavelmente vou utilizar ele no futuro
+
+[33mcommit 0bf14be535b31466df7d7662abc64bbc661faf98[m[33m ([m[1;31morigin/front[m[33m, [m[1;32mfront[m[33m)[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Wed Apr 23 10:57:43 2025 -0400
+
+    fazendo as alterações no arquivo html/quiz.html. Estou implementando um sistema de seleção de opção correta
+
+[33mcommit 1bb0c1a2f2b58941711ba080345630587814dbec[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Tue Apr 1 11:33:02 2025 -0400
+
+    Coloquei alguns avisos especificando algumas coisas no quiz.html. Não comecei a mexer no backend para arrumar os erros que estão dando. Portanto deve mexer nessa parte quando for possível
+
+[33mcommit c2db24dfd0d4c4919366c65bb8a0763145f39f64[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Fri Mar 28 11:19:13 2025 -0400
+
+    Removi o sistema de hidden das alternativas. Decidi deixar as cinco alternativas vistas, basta deixar claro que somente duas alternativas devem preenchidas de forma obrigatória. No criare_jogos.php alterei o caminho que levava a página de quiz, visto que alterei a extensão novamente para o html. No quiz.html, como dito anteriormente, eu mudei sua extensão, mas adicionei campos de radio para o usuário escolher qual alternativa é a correta. Vou dar a opção do usuário definir até quatro opção como correta, portanto devo alterar o tipo de config padrão que já vem nesse tipo de input que possibilita apenas que duas opções sejam marcadas. No armazenar_quiz.php comecei a capturar os valores enviados do formulário. Inclusive, notei que o cookie está funcionando de forma correta. Porém como eu naveguei direto ao arquivo, não posso afirmar com 100% de certeza que está funcionando. O único problema que notei se deve ao valor capturado dos inputs do tipo radio. Ele está enviando somente um valor, e o correto é enviar todos os valores selecionados. Feito hoje, somente isso.
+
+[33mcommit cb188cda762fbe8672d36733e10cb61738ff93d3[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Mar 27 16:33:40 2025 -0400
+
+    mudei o nome do arquivo do quiz para que eu possa inserir o conteúdo no banco de dados pela própria página
+
+[33mcommit 73525db35d2e5a32e80b318befb933baf9cfb0c0[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Mar 27 15:45:24 2025 -0400
+
+    Adicionando o arquivo do jogo verdadeiro ou falso
+
+[33mcommit 62010810fbac66d209779556b660aa4325879dbe[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Mar 27 15:40:22 2025 -0400
+
+    arquivo com as funções
+
+[33mcommit 7fef3095df9acf721e5d9bc5a178bea96379ed5a[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Mar 27 15:05:51 2025 -0400
+
+    exemplo de arquivo de conexão com banco de dados
+
+[33mcommit 8ae68f194edbf2d97eccfc194acebc90e4ce7d2c[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Mar 27 15:03:43 2025 -0400
+
+    Adicionando o arquivo git ignore
+
+[33mcommit 64c9bb406df8e671ec2b3758e63d48a9f2fe8c14[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Mar 27 15:03:10 2025 -0400
+
+    Excluindo o arquivo de conexão do repositório
+
+[33mcommit fbd630374becf86f54f4521441fd9a9aef421107[m
+Merge: 839664b 664d577
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Mar 27 15:00:41 2025 -0400
+
+    Fazendo o merge entre as branchs
+
+[33mcommit 839664bc841f483b4e801c6321b34fca6795c23a[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Mar 27 14:57:26 2025 -0400
+
+    Adicionando o arquivo readme
+
+[33mcommit 664d577f49c9faca134b9e5b94af35d6d783fafe[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Mar 27 14:52:16 2025 -0400
+
+    Excluindo os arquivos do jogo verdadeiro ou falso. Irei refazer todo o esquema
+
+[33mcommit 3ef44c46c2e88fa2533ced481096da6b57ebed9d[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Fri Mar 21 10:19:01 2025 -0400
+
+    Fiz os primeiros preparos para implementar um novo sistema. Iremos usar o sistema de definição de token, para relacionar os jogos. Devemos refazer o sistema do jogo de verdadeiro ou falso e desenvolver o sistema para os outros jogos
+
+[33mcommit fb4e001de6a5e3fd5d3db2761ba5302633c4028a[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Thu Mar 20 09:37:26 2025 -0400
+
+    criei os arquivos para o jogo de memória
+
+[33mcommit 225d930dfc227bbebd937af0c514a1dae31d4a9a[m
+Author: Gustavo de Souza Vieira <gustavo@CamOPO2.com>
+Date:   Wed Mar 19 11:41:09 2025 -0400
+
+    Começando a fazer o jogo de quiz e de memória
+
+[33mcommit dd9c4da5e3f9685c039811f050657d07a41b73d2[m[33m ([m[1;31morigin/didaktos-project[m[33m)[m
+Author: Azazel-Admetus <gustavodsv7184@gmail.com>
+Date:   Thu Feb 13 11:15:27 2025 -0300
+
+    Problema do redirecionamento em loop resolvido. O problema acontecia porque toda vez que o formulário era enviado a url deixava de ter o parâmetro do id, então quando referenciávamos o arquivo que busca no banco de dados que por sua vez estava referenciando o arquivo que captura o id; fazia todo o processo dnv. Como não havia mais um id na url o tratamento de verificação do arquivo que captura o id me redirecionava para um erro. A solução foi inserir o id numa sessão, dessa forma eu não precisava mais referenciar o arquivo mas apenas acessar a sessão e pegar  o valor do id
+
+[33mcommit bf31889cd761ba1795648700215877e4517e2267[m
+Author: Azazel-Admetus <gustavodsv7184@gmail.com>
+Date:   Wed Feb 12 14:40:36 2025 -0300
+
+    Para resolver o problema do redirecionamento em loop eu reparti o arquivo game.php em arquivos menores com cada um fazendo uma determinada coisa. Não obtive sucesso. As principais ideias que tenho é modificar o arquivo que captura o id
+
+[33mcommit 4d202686564597b99c79afc0d9394f6927cfbcf0[m
+Author: Azazel-Admetus <gustavodsv7184@gmail.com>
+Date:   Tue Feb 11 13:30:46 2025 -0300
+
+    Desenvolvi o arquivo game.php para analisar a resposta do usuário e ver se está correta. Entretanto tenho enfrentado um problema de redirecionamento em loop que até agora não encontrei a causa.
+
+[33mcommit 5785e44e2efc410336fed0a11b82d8019f56eab4[m
+Author: Azazel-Admetus <gustavodsv7184@gmail.com>
+Date:   Mon Feb 10 14:30:37 2025 -0300
+
+    Salvando o arquivo game.php mencionado no commit anterior
+
+[33mcommit 7fbb25e3a032ccbefadcf8f112180c2906f4290c[m
+Author: Azazel-Admetus <gustavodsv7184@gmail.com>
+Date:   Mon Feb 10 14:27:29 2025 -0300
+
+    desenvolvi o arquivo game.php para substituir o html do jogo fazendo consulta no banco de dados com base no id do parâmetro da url. ELe também verifica se a resposta do usuário é igual a resposta cadastrada no banco, e atribui parâmetros na url para ser lidado com o js posteriormente
+
+[33mcommit dbc18953e3f259c83e00573cd7a520cd1d4322f2[m
+Author: Azazel-Admetus <gustavodsv7184@gmail.com>
+Date:   Mon Feb 10 12:11:36 2025 -0300
+
+    Adicionando as pastas do projeto, sendo: html, img, css, js e php. Testando fazer o commit e adição de projetos pela nova branch didaktos-project
+
+[33mcommit 38ffe88de315e26594e595898eaf7ded59519283[m
+Author: A. Admetus <gustavodsv7184@gmail.com>
+Date:   Mon Feb 10 12:02:56 2025 -0300
+
+    Delete didaktos directory
+
+[33mcommit 1c96d6630769ff9ea069b3be7f5546eb3dda5795

@@ -5,7 +5,7 @@ if(isset($_GET['tipo'])){
     $tipo_jogo = $_GET['tipo'];
     $token = gerarToken($tipo_jogo);
     //armazenar o token no cookie com validade de 24h
-    setcookie('id_jogo', $token, time() + 86400, '/');
+    setcookie('id_jogo', $token, time() + 86400, '/', '', true, true);
     require_once "../php/conn.php";
     $pin = gerarPin();
     session_start();
@@ -70,10 +70,10 @@ if(isset($_GET['tipo'])){
      
         <section id="secao-main">
             <header>
-                <!-- <h2>Crie seu jogo de forma totalmente <span>gratuita</span>!</h2> -->
+                <h2>Crie seu jogo de forma totalmente <span>gratuita</span>!</h2>
                 <p>Escolha o tipo de jogo e você será redirecionado para a página de criação desse jogo</p>
             </header>
-            <section>
+            <section id="container">
                 <section>
                     <h3>Escolha uma opção de jogo e clique em <span>Criar Jogo</span></h3>
                     <p>Você será redirecionado para a página de criação desse jogo</p>
