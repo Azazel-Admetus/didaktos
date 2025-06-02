@@ -23,6 +23,16 @@
    
      
     </form>
-    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get("error");
+        if(error == "pass_machigatteiru"){
+            alert("Senha incorreta. Tente novamente");
+        } else if(error == "email_machigatteiru"){
+            alert("Insira um email válido");
+        }else if(error == "karappo"){
+            alert('Por favor preencha todos os campos');
+        }
+    </script>
 </body>
 </html>
