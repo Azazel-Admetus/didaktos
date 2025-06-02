@@ -22,13 +22,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 header('Location:../html/home.php');
                 exit();
             } else{
-                echo "Senha incorreta";
+                header('Location:../html/login.html?error=pass_machigatteiru');
+                exit;
             }
         }else{
-            echo "Email incorreto";
+            header('Location:../html/login.html?error=email_machigatteiru');
+            exit;
         }
     }else{
-        echo "Por favor, preencha todos os campos";
+        header("Location:../html/login.html?error=karappo");
+        exit;
     }
 }
 ?>
