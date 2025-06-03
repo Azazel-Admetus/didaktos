@@ -112,8 +112,10 @@ a:hover{
 span{
     color: #64b5f6;
 }
-#secao-main header{
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
+h2{
+    font-family: "Lato", serif;
+    font-style: normal;
+    font-weight: 600;
+    border-bottom: solid 1px #000000;
+
 }

@@ -71,9 +71,8 @@ if(isset($_GET['tipo'])){
         <section id="secao-main">
             <header>
                 <h2>Crie seu jogo de forma totalmente <span>gratuita</span>!</h2>
-                <p>Escolha o tipo de jogo e você será redirecionado para a página de criação desse jogo</p>
             </header>
-            <section id="container">
+            <section>
                 <section>
                     <h3>Escolha uma opção de jogo e clique em <span>Criar Jogo</span></h3>
                     <p>Você será redirecionado para a página de criação desse jogo</p>
