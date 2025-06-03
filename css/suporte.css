@@ -89,9 +89,7 @@ input{
     margin-left: -40px;
     text-align: center;
 }
-input:hover{
-padding: 15px;
-}
+
 h1{
     font-family: "Lato", serif;
     font-weight: 700;
