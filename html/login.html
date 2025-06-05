@@ -11,18 +11,16 @@
         <h1>DIDAKTOS</h1>
         <form action="../php/login.php" method="POST"> 
             <h2>LOGIN</h2>
-            <label>EMAIL</label>
-            <input type="email" placeholder="DIGITE SEU EMAIL" name="email" required><br>
-            <label>SENHA</label>
-            <input type="password" placeholder="DIGITE SUA SENHA" name="senha" required><br>
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" placeholder="DIGITE SEU EMAIL" name="email" required><br>
+            <label for="senha">SENHA</label>
+            <input type="password" id="senha" placeholder="DIGITE SUA SENHA" name="senha" required><br>
             <p><a href="">ESQUECEU SUA SENHA?</a> | <a href="cadastro.html">CADASTRE-SE</a></p>
             <div>
                 <button type="submit" >ENTRAR</button>
             </div>
+        </form>
     </main>
-   
-     
-    </form>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get("error");
@@ -32,6 +30,8 @@
             alert("Insira um email válido");
         }else if(error == "karappo"){
             alert('Por favor preencha todos os campos');
+        }else if(error == "karappo"){
+            alert("Por favor insira em todos os campos");
         }
     </script>
 </body>

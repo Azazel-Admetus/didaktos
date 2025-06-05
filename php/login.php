@@ -30,8 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             exit; 
         }
     }else{
-        header('Location:../html/login.html?error=karappo');
+        header('Location:../html/login.html?error=email_machigatteiru');
         exit;
     }
+}else{
+    header("Location:../html/login.html?error=karappo");
+    exit;
 }
 ?>

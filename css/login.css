@@ -59,9 +59,7 @@ input{
     margin-left: 15px;
     text-align: center;
 }
-input:hover{
-    padding: 15px ;
-}
+
 button:hover{
     color: #000000;
     background-color: #ffffff;
@@ -71,4 +69,8 @@ p{
     font-family: "Lato", serif;
     font-weight: 700;
 
+}
+a:hover{
+    color: #2196f3;
+    text-decoration: none;
 }

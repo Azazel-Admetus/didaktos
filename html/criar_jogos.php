@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 require_once "../php/function.php";
 //pegando o tipo de jogo pela url
 if(isset($_GET['tipo'])){
@@ -37,14 +37,14 @@ if(isset($_GET['tipo'])){
     }
     exit();
 }else{
-    ?>
+    ?> -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/166d077dc6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/criar_jogos.css">
+    <link rel="stylesheet" href="../css/criar_jogos.css?v=1.0">
     <title>Criar jogos | DIDAKTOS</title>
 </head>
 <body>
@@ -69,24 +69,23 @@ if(isset($_GET['tipo'])){
         </header>
      
         <section id="secao-main">
-            <header>
+            <header id="cabecalho-section">
                 <h2>Crie seu jogo de forma totalmente <span>gratuita</span>!</h2>
-                <p>Escolha o tipo de jogo e você será redirecionado para a página de criação desse jogo</p>
             </header>
             <section id="container">
-                <section>
-                    <h3>Escolha uma opção de jogo e clique em <span>Criar Jogo</span></h3>
-                    <p>Você será redirecionado para a página de criação desse jogo</p>
-                </section>
-                    <form method="GET" action="criar_jogos.php">
-                    <label for="tipo">Escolha o tipo de jogo:</label>
+                <form method="GET" action="criar_jogos.php">
+                    <section>
+                        <h3 class="texto">Escolha uma opção de jogo e clique em <span>Criar Jogo</span></h3>
+                        <p class="texto" >Você será redirecionado para a página de criação desse jogo</p>
+                    </section>
+                    <label for="tipo" class="texto">Escolha o tipo de jogo:</label>
                     <select name="tipo" id="tipo">
-                        <option value="quiz">Quiz</option>
-                        <option value="vf">Verdadeiro ou Falso?</option>
+                        <option value="quiz" class="texto">Quiz</option>
+                        <option value="vf" class="texto">Verdadeiro ou Falso?</option>
                     <!-- <option value='objeto'>Qual objeto é esse?</option>
                     <option value="animal">Qual animal é esse?</option> -->
                     </select>
-                    <button type="submit">Criar Jogo</button>
+                    <button type="submit" class="texto">Criar Jogo</button>
                 </form>
             </section>
           

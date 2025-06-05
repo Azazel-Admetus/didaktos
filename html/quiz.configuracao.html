@@ -3,36 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/quiz_config.css">
+    <script src="https://kit.fontawesome.com/166d077dc6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/quiz_config.css?v=1.2">
     <title>Configurações - QUIZ</title>
 </head>
 <body>
     <main>
         <header id="cabecalho">
             <h1>DIDAKTOS</h1>
-            <section id="secao">
-                <a href="suporte.html">SUPORTE</a>
+           <section id="secao">             
                 <div id="menu">
                     <a id="perfil" href=""></a>
                     <div class="menucontent" >
                         <h4>User</h4>
                         <!-- <a id="config" href="#"></a> -->
-                        <a id="sair" href="index.html"></a>
+                        <a href="suporte.html">
+                            <i class="fa-solid fa-circle-question fa-2x" title="Suporte ao cliente para tirar dúvidas ou solucionar problemas."></i>
+                        </a>
+                        <a id="sair" href="index.html" title="Deslogar"></a>                       
                     </div>
                 </div>
             </section>
         </header>
-        <section>
-            <section></section>
-            <form action="../php/arnazenar_quizconfig.php" method="POST">
-                <header>
-                    <h3>Insira as informações do jogo</h3>
-                </header>
-                <section>
+        <form action="../php/arnazenar_quizconfig.php" method="POST">
+            <header>
+                <h3 class="texto">Insira as informações do jogo</h3>
+            </header>
+            <section>
+                <div>
                     <label for="titulo">Título</label>
                     <input type="text" id="titulo" name="titulo" required placeholder="Defina um título para o seu jogo">
                     <label for="descricao">Descrição</label>
-                    <textarea rows="2" cols="10" id="decricao" name="descricao" placeholder="Defina uma descrição para o seu jogo"></textarea>
+                    <textarea rows="2" cols="10" id="descricao" name="descricao" placeholder="Defina uma descrição para o seu jogo"></textarea>
+                </div>
+                <div>
                     <label for="dificuldade">Dificuldade</label>
                     <select id="dificuldade" name="dificuldade" title="Defina a dificuldade do seu jogo" required>
                         <option value="facil">Fácil</option>
@@ -44,12 +48,12 @@
                         <option value="sim">Sim, desejo publicar</option>
                         <option value="nao">Não, somente quero salvar</option>
                     </select>
-                </section>
-                <footer>
-                    <button type="submit">Enviar</button>
-                </footer>
-            </form>
-        </section>
+                </div>
+            </section>
+            <footer>
+                <button type="submit">Enviar</button>
+            </footer>
+        </form>
     </main>
     <script>
         const url = new URLSearchParams(window.location.search);
