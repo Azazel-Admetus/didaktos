@@ -72,20 +72,20 @@ if(isset($_GET['tipo'])){
             <header>
                 <h2>Crie seu jogo de forma totalmente <span>gratuita</span>!</h2>
             </header>
-            <section>
+            <section id="container">
                 <section>
-                    <h3>Escolha uma opção de jogo e clique em <span>Criar Jogo</span></h3>
-                    <p>Você será redirecionado para a página de criação desse jogo</p>
+                    <h3 class="texto">Escolha uma opção de jogo e clique em <span>Criar Jogo</span></h3>
+                    <p class="texto" >Você será redirecionado para a página de criação desse jogo</p>
                 </section>
                     <form method="GET" action="criar_jogos.php">
-                    <label for="tipo">Escolha o tipo de jogo:</label>
+                    <label for="tipo" class="texto">Escolha o tipo de jogo:</label>
                     <select name="tipo" id="tipo">
-                        <option value="quiz">Quiz</option>
-                        <option value="vf">Verdadeiro ou Falso?</option>
+                        <option value="quiz" class="texto">Quiz</option>
+                        <option value="vf" class="texto">Verdadeiro ou Falso?</option>
                     <!-- <option value='objeto'>Qual objeto é esse?</option>
                     <option value="animal">Qual animal é esse?</option> -->
                     </select>
-                    <button type="submit">Criar Jogo</button>
+                    <button type="submit" class="texto">Criar Jogo</button>
                 </form>
             </section>
           
