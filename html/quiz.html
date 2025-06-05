@@ -3,57 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/quiz.css">
+    <script src="https://kit.fontawesome.com/166d077dc6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/quiz.css?v=1.2">
     <title>Criar Quiz - DIDAKTOS</title>
 </head>
 <body>
     <main>
-        <header>
-            <a href="home.html">
-                <h1>DIDAKTOS</h1>
-            </a>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="config.html">Configurações</a>
-                    </li>
-                    <li>
-                        <a href="index.html">sair</a>
-                    </li>
-                </ul>
-            </nav>
+        <header id="cabecalho">
+            <h1>DIDAKTOS</h1>
+            <section id="secao">             
+                <div id="menu">
+                    <a id="perfil" href=""></a>
+                    <div class="menucontent" >
+                        <h4>User</h4>
+                        <!-- <a id="config" href="#"></a> -->
+                        <a href="suporte.html">
+                            <i class="fa-solid fa-circle-question fa-2x" title="Suporte ao cliente para tirar dúvidas ou solucionar problemas."></i>
+                        </a>
+                        <a id="sair" href="index.html" title="Deslogar"></a>                       
+                    </div>
+                </div>
+            </section>
         </header>
         <section>
             <section>
-                <h2>Ao clicar no botão de salvar, as perguntas criadas e suas respostas definidas são armazenadas. Para poder publicar o jogo, você deve definir as configurações dele acessando o link abaixo</h2>
-                <a href="quiz.configuracao.html">Configurações</a>
+                <h2 class="texto">Ao clicar no botão de salvar, as perguntas criadas e suas respostas definidas são armazenadas. Para poder publicar o jogo, você deve definir as configurações dele acessando o link abaixo</h2>
+                <a href="quiz.configuracao.html" id="config-link">Configurações</a>
             </section>
             <form action="../php/armazenar_quiz.php" method='post'>
                 <header>
-                    <h2>Crie um quiz educativo</h2>
-                    <p>É obrigatório definir as quatro alternativas para esta pergunta</p>
+                    <h2 class="texto">Crie um quiz educativo</h2>
+                    <p class="texto">É obrigatório definir as quatro alternativas para esta pergunta</p>
                 </header>
-                <label for="pergunta" >Pergunta</label>
-                <input type="text" id="pergunta" name="pergunta" placeholder="Crie sua pergunta para o quiz" required>
-                <label for="alternativa1">Alternativa A</label>
-                <input type="text" id="alternativa1" name="alternativa1" placeholder="Defina uma possível resposta" required>
-                <label for="alternativa2">Alternativa B</label>
-                <input type="text" id="alternativa2" name="alternativa2" placeholder="Defina uma outra possível resposta" required>
-                <label for="alternativa3" >Alternativa C</label>
-                <input type="text" id="alternativa3" name="alternativa3"  placeholder="Defina uma outra possível resposta" required>
-                <label for="alternativa4">Alternativa D</label>
-                <input type="text" id="alternativa4" name="alternativa4"  placeholder="Defina uma outra possível resposta" required>
-         
-                
-                <h3>Escolha a alternativa correta</h3>
-                <p>Escolha somente uma alternativa como correta
-                </p>
-                <label><input type="radio" name="resposta" value="A">A</label>
-                <label><input type="radio" name="resposta" value="B">B</label>
-                <label><input type="radio" name="resposta" value="C">C</label>
-                <label><input type="radio" name="resposta" value="D">D</label>
-                <div id="checkbox-container"></div>
-                <button type="submit">Salvar</button>
+                <section id="conteudo-quiz">
+                    <div id="div1">
+                        <label for="pergunta" >Pergunta:</label>
+                        <input type="text" id="pergunta" name="pergunta" placeholder="Crie sua pergunta para o quiz" required>
+                        <label for="alternativa1">Alternativa A:</label>
+                        <input type="text" id="alternativa1" name="alternativa1" placeholder="Defina uma possível resposta" required>
+                        <label for="alternativa2">Alternativa B:</label>
+                        <input type="text" id="alternativa2" name="alternativa2" placeholder="Defina uma outra possível resposta" required>
+                        <label for="alternativa3" >Alternativa C:</label>
+                        <input type="text" id="alternativa3" name="alternativa3"  placeholder="Defina uma outra possível resposta" required>
+                        <label for="alternativa4">Alternativa D:</label>
+                        <input type="text" id="alternativa4" name="alternativa4"  placeholder="Defina uma outra possível resposta" required>
+                    </div>
+                    <footer>
+                        <h3 class="texto">Escolha a alternativa correta</h3>
+                        <p class="texto">Escolha somente uma alternativa como correta
+                        </p>
+                        <label><input type="radio" name="resposta" value="A">A</label>
+                        <label><input type="radio" name="resposta" value="B">B</label>
+                        <label><input type="radio" name="resposta" value="C">C</label>
+                        <label><input type="radio" name="resposta" value="D">D</label>
+                    </footer>
+                </section>
+                <button type="submit">Salvar</button>             
             </form>
         </section>
     </main>

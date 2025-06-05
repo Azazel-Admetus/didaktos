@@ -44,7 +44,7 @@ if(isset($_GET['tipo'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/166d077dc6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/criar_jogos.css">
+    <link rel="stylesheet" href="../css/criar_jogos.css?v=1.0">
     <title>Criar jogos | DIDAKTOS</title>
 </head>
 <body>

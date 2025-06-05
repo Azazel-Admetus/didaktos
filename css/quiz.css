@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* estilizando o header */
+
+:root{
+    --fonte1: "Playfair Display", serif;
+    --fonte2: "Lato", serif;
+}
+#cabecalho{
+    background-color: #f5f5f5;
+    padding:1px;
+    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5% ;
+    padding-right: 5%;
+   
+}
+#secao{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+}
+#menu{
+    position: relative;
+}
+h1{
+    font-family: var(--fonte1);
+    font-style: bold;
+    font-weight: 800;
+    color: #64b5f6;
+    text-decoration: underline;
+}
+h4{
+    font-family: var(--fonte2);
+    font-style: normal;
+    font-weight: 600;
+    border-bottom: solid 1px #000000;
+    color: #1d43d8;
+
+}
+.menucontent{
+    display: none; 
+    position: absolute;
+    top: 40px; 
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    flex-direction: column;
+    gap: 20px;
+}
+#menu:hover .menucontent{
+    display: flex;
+    border-radius: 50px;
+    padding: 20px;
+    
+}
+#perfil{
+    background-image: url('../img/iconeperfil.png');
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    display: inline-block;
+}
+#config{
+    background-image: url('../img/iconeconfig.png');
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    display: inline-block;
+    
+}
+#sair{
+    background-image: url('../img/iconesair.png');
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    display: inline-block;
+}
+a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: var(--fonte2);
+    font-weight: 600;
+    color: #64b5f6;
+}
+a:hover{
+    color:#2196f3;
+    text-decoration: underline;
+}
+.icon{
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+
+
+}
+#botao{
+    background-color: #64b5f6;
+    padding: 20px;
+    border: none;
+    border-radius: 50px;
+    color: #f5f5f5;
+    
+}
+#botao:hover{
+    background-color: #2196f3;
+}
+/* parte do meio do site */
+.texto{
+    font-family: var(--fonte2);
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+
+}
+main section section h2{
+    margin-top: 100px;
+}
+main section section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 70px;
+
+}
+#config-link{
+    text-decoration: none;
+    font-family: var(--fonte2);
+    font-weight: 600;
+    color: #64b5f6;
+    font-size: 30px;
+}
+
+#config-link:hover{
+    color:#2196f3;
+    text-decoration: underline;
+}
+/* estilizando o fomulário */
+form{
+    background-color:  #f5f5f5 ;
+    padding:50px 30px;
+}
+form header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+form header p{
+    color: red;
+    font-weight:bold; 
+    font-size: 20px;
+    text-decoration: underline;
+}
+#conteudo-quiz{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+
+}
+form #conteudo-quiz #div1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+label{
+    font-family: var(--fonte2);
+    font-style: normal;
+    font-weight: 700;
+    margin-right: 10px;
+}
+label:hover{
+    cursor: pointer;
+}
+input{
+    padding: 10px 70px;
+    border-radius: 10px;
+    border: 1px solid #414040;
+    margin-bottom: 20px;
+}
+input::placeholder{
+    font-family: var(--fonte2);
+    font-weight: 700;
+    font-style: normal;
+}
+form footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+button{
+    background-color: #64b5f6;
+    color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 20px 60px;
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 45%;
+    font-size: 20px;
+}
+button:hover{
+    background-color: #000000;
+    color: #64b5f6;
+    cursor: pointer;
+    border:1px solid #1d43d8
+}
