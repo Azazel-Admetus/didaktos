@@ -122,9 +122,11 @@ h2{
     font-weight: 600;
     text-align: center;
     justify-content: center;
-    bottom: 20px;
+    margin-bottom: 50px;
+    margin-top: 100px;
 
 }
+
 #container{
     display: flex;
     justify-content: center;
@@ -138,4 +140,41 @@ h2{
     font-style: normal;
     font-weight: 600;
 
+}
+form{
+    /* border: 1px solid #ccc; */
+    box-shadow: 2px 1px 1px 2px #ccc;
+    border-radius: 5%;
+    background-color: #f0e9e9;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    
+}
+button{
+    background-color: #64b5f6;
+    color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 15px 40px;
+    display: inline-block;
+    font-weight: bold;
+}
+button:hover{
+    background-color: #000000;
+    color: #64b5f6;
+    cursor: pointer;
+    border:1px solid #1d43d8
+}
+#tipo{
+    font-family: var(--fonte2);
+    font-style: normal;
+    font-weight: 600;
+}
+#tipo:hover{
+    cursor: pointer;
 }
