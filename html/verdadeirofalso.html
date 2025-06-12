@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/truefalse.css">
+    <link rel="stylesheet" href="../css/truefalse.css?v=1.2">
     <title>Document</title>
 </head>
 <body>
@@ -24,14 +24,14 @@
         </header>
         <section id="section-pai">
             <section>
-                <h3>Ao clicar no botão de salvar, você armazena as afirmações com as respostas feitas. Para publicar seu jogo, você deve definir as configurações dele.</h3>
-                <p>Acesse o link abaixo para definir as configurações do jogo</p>
-                <a href="verdadeirofalsoconfiguracao.html">Configurações</a>
+                <h3 class="texto">Ao clicar no botão de salvar, você armazena as afirmações com as respostas feitas. Para publicar seu jogo, você deve definir as configurações dele.</h3>
+                <p class="texto">Acesse o link abaixo para definir as configurações do jogo</p>
+                <a href="verdadeirofalsoconfiguracao.html" id="config-link">Configurações</a>
             </section>
             <form action="../php/verdadeirofalso.php" method="POST">
                 <header>
-                    <h2>Jogo de Verdadeiro ou Falso</h2>
-                    <p>Crie uma afirmação e classifique ela como verdadeira ou falsa. <span>É obrigatório escolher se a alternativa é verdadeira ou falsa.</span></p>
+                    <h2 class="texto">Jogo de Verdadeiro ou Falso</h2>
+                    <p class="texto">Crie uma afirmação e classifique ela como verdadeira ou falsa. <span>É obrigatório escolher se a alternativa é verdadeira ou falsa.</span></p>
                 </header>
                 <section>
                     <label for="pergunta">Pergunta</label>
