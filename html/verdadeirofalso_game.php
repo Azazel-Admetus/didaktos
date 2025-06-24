@@ -50,17 +50,26 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/verdadeirofalso_game.css">
+    <link rel="stylesheet" href="../css/verdadeirofalso_game.css?v=1.2">
     <title>Verdadeiro ou Falso?</title>
 </head>
 <body>
-    <section id='content_jogo'>
+    <header>
+        <h1>DIDAKTOS</h1>
+    </header>
+    <main>
+        <section id='content_jogo'>
         <p id='pergunta'></p>
-        <button id="btn_verdadeiro">verdadeiro</button>
-        <button id="btn_falso" >falso</button>
+        <div>
+            <button id="btn_verdadeiro" class="botao">verdadeiro</button>
+            <button id="btn_falso" class="botao">falso</button>
+        </div>
+
         <div id="temporizador">10</div>
     </section>
     <section id='config_jogo'></section>
+    </main>
+    
     <script>
     document.addEventListener("DOMContentLoaded", () =>{
         const perguntas = <?php echo json_encode($conteudo_jogo); ?>;
@@ -71,19 +80,21 @@ if($stmt->execute()){
 
         let indiceAtual = 0;
         let respostasUsuarios= [];
+        let escolhaUsuario = null;
         let temporizador = null;
         let tempoPorPergunta = 10;
 
         if(perguntas.length > 0){
             const config = perguntas[0];
             configJogo.innerHTML = `
-                <h2>${config.titulo}</h2>
-                <p>${config.descricao}</p>
-                <p>Dificuldade: ${config.dificuldade}</p>
-                <p>Autor: ${config.autor}</p>
+                <h2 id = "titulo">${config.titulo}</h2>
+                <p id = "descricao">${config.descricao}</p>
+                <p id = "dificuldade">Dificuldade: ${config.dificuldade}</p>
+                <p id = "autor">Autor: ${config.autor}</p>
             `;
         }
         function mostrarPergunta() {
+            escolhaUsuario = null;
             if(indiceAtual >= perguntas.length){
                 mostrarResultado();
                 return;
@@ -107,10 +118,8 @@ if($stmt->execute()){
                 temporizadorElemento.textContent = tempo;
                 if(tempo <= 0){
                     clearInterval(temporizador);
-                    if(!respostasUsuarios[indiceAtual]){
-                        registrarResposta("sem resposta");
-                    }
-                    indiceAtual ++;
+                    registrarResposta(escolhaUsuario ? escolhaUsuario : "sem resposta")
+                    indiceAtual++;
                     mostrarPergunta();
                 }
             }, 1000);
@@ -129,13 +138,10 @@ if($stmt->execute()){
             botaoFalso.disabled  = true;
         }
         function aplicarEfeitoVisual(botao){
+            botaoVerdadeiro.classList.remove("selecionado");
+            botaoFalso.classList.remove("selecionado");
             botao.classList.add("selecionado");
-            botaoVerdadeiro.disabled = true;
-            botaoFalso.disabled = true;
-
-            setTimeout(() =>{
-                registrarResposta(botao === botaoVerdadeiro ? "verdadeiro" : "falso");
-            }, 1000);
+            escolhaUsuario = botao === botaoVerdadeiro ? "verdadeiro" : "falso";
         }
         botaoVerdadeiro.addEventListener("click", () => aplicarEfeitoVisual(botaoVerdadeiro));
         botaoFalso.addEventListener("click", () => aplicarEfeitoVisual(botaoFalso));
@@ -145,8 +151,8 @@ if($stmt->execute()){
             const total = respostasUsuarios.length;
 
             document.getElementById("content_jogo").innerHTML = `
-                <h2>Fim do jogo!</h2>
-                <p>Você acertou ${corretas} de ${total} perguntas.</p>
+                <h2 id = "fim">Fim do jogo!</h2>
+                <p id = "acertos">Você acertou ${corretas} de ${total} perguntas.</p>
             `;
         }
         mostrarPergunta();

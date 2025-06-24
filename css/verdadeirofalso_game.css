@@ -1,15 +1,121 @@
-.selecionado {
-    background-color: #90CAF9;
-    font-weight: bold;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+body{
+    background-color: #f5f5f5;
+}
+main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 200px;
 }
 #content_jogo {
     margin: 20px;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 800px;
+    height: 400px;
+    position: relative;
+    background-color: #f5fdff;
+
+}
+#content_jogo #pergunta{
+    font-family: "Lato", serif ;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
 }
 button {
     padding: 10px 15px;
     margin: 5px;
     cursor: pointer;
+}
+h1{
+    font-family: var(--fonte1);
+    font-style: bold;
+    font-weight: 800;
+    color: #64b5f6;
+    text-decoration: underline;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 30px;
+}
+div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-top: 200px;
+}
+.botao{
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    color: #fff;
+    background-color: #64b5f6;
+    border: none;
+    border-radius: 20px;
+    padding: 20px 40px;
+    transition: background-color 0.3s ease;
+}
+.botao:hover{
+    background-color: #2196f3;
+}
+#temporizador{
+    position: absolute;
+    right: 20px;
+    bottom: 0px;
+    font-family: "Courier New", Courier, monospace;
+    background-color: #0f4c75;
+    color: #90CAF9;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px auto;
+}
+.botao.selecionado {
+    color: #fff;
+    font-weight: bold;
+    background-color: #0f4c75;
+
+}
+/* /* estilzando a tela final */
+#fim{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    margin-top: 100px;
+    color: #0f4c75;
+    font-size: 25px;
+}
+#acertos{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: #2196f3;
+
+}
+/* estilizaremos aqui a parte de configurações do jogo */
+#cofig_jogo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#titulo{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 25px;
+}
+#descricao, #dificuldade, #autor{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 20px ;
 }
