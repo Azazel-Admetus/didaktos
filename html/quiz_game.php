@@ -65,16 +65,27 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/quiz-game.css">
     <title>Quiz</title>
 </head>
 <body>
+    <header>
+        <a href="home.php">
+            <h1>DIDAKTOS</h1>
+        </a>
+    </header>
     <main>
         <section id='content_jogo'>
             <h3 id='pergunta'></h3>
-            <button id='A'></button>
-            <button id='B'></button>
-            <button id='C'></button>
-            <button id='D'></button>
+            <div class="botoes-linha">
+                <button id='A' class="botao"></button>
+                <button id='B' class="botao"></button>
+            </div>
+            <div class="botoes-linha">
+                <button id='C' class="botao"></button>
+                <button id='D' class="botao"></button>
+            </div>
+       
             <div id='temporizador'>10</div>
         </section>
         <section id="config_jogo"></section>
@@ -93,6 +104,7 @@ if($stmt->execute()){
 
         let indiceAtual = 0;
         let respostasUsuarios = [];
+        let escolhaUsuario = null;
         let temporizador = null;
         let tempoPorPergunta = 10;
 
@@ -107,7 +119,9 @@ if($stmt->execute()){
         }
 
         function mostrarPergunta(){
+            escolhaUsuario = null;
             if(indiceAtual >= perguntas.length){
+                if(temporizador) clearInterval(temporizador);
                 mostrarResultado();
                 return;
             }
@@ -133,11 +147,15 @@ if($stmt->execute()){
                 temporizadorElemento.textContent = tempo;
                 if(tempo <= 0){
                     clearInterval(temporizador);
-                    if(!respostasUsuarios[indiceAtual]){
-                        registrarResposta("sem resposta");
+                    registrarResposta(escolhaUsuario ? escolhaUsuario : "sem resposta");
+                    if(indiceAtual + 1 >= perguntas.length){
+                        indiceAtual ++;
+                        mostrarResultado();
+                    } else{
+                        indiceAtual++;
+                        mostrarPergunta();
+
                     }
-                    indiceAtual ++;
-                    mostrarPergunta();
                 }
             }, 1000);
         }
@@ -153,14 +171,9 @@ if($stmt->execute()){
             [btnA, btnB, btnC, btnD].forEach(btn => btn.disabled = true);
         }
         function aplicarEfeitoVisual(botao, letra){
+            [btnA, btnB, btnC, btnD].forEach(btn => btn.classList.remove("selecionado"));
             botao.classList.add("selecionado");
-            [btnA, btnB, btnC, btnD].forEach(btn => btn.disabled = true);
-            setTimeout(() =>{
-                registrarResposta(letra);
-                clearInterval(temporizador);
-                indiceAtual++;
-                mostrarPergunta();
-            }, 1000);
+            escolhaUsuario = letra;
         }
         btnA.addEventListener("click", () => aplicarEfeitoVisual(btnA, "A"));
         btnB.addEventListener("click", () => aplicarEfeitoVisual(btnB, "B"));
@@ -172,14 +185,12 @@ if($stmt->execute()){
             const total = respostasUsuarios.length;
 
             document.getElementById("content_jogo").innerHTML = `
-                <h2>Fim do Jogo!</h2>
-                <p>Você acertou ${corretas} de ${total} perguntas.</p>
+                <h2 id = "fim">Fim do jogo!</h2>
+                <p id = "acertos">Você acertou ${corretas} de ${total} perguntas.</p>
             `;
         }
         mostrarPergunta();
     });
-    </script>
-    <script>
     </script>
 </body>
 </html>
