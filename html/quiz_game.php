@@ -111,10 +111,10 @@ if($stmt->execute()){
         if(perguntas.length > 0){
             const config = perguntas[0];
             config_jogo.innerHTML = `
-            <h2>${config.titulo}</h2>
-            <p>${config.descricao}</p>
-            <p>Dificuldade: ${config.dificuldade}</p>
-            <p>Autor: ${config.autor}</p>
+            <h2 id="titulo">${config.titulo}</h2>
+            <p id="descricao">${config.descricao}</p>
+            <p id="dificuldade">Dificuldade: ${config.dificuldade}</p>
+            <p id="autor">Autor: ${config.autor}</p>
             `;
         }
 
@@ -148,11 +148,10 @@ if($stmt->execute()){
                 if(tempo <= 0){
                     clearInterval(temporizador);
                     registrarResposta(escolhaUsuario ? escolhaUsuario : "sem resposta");
-                    if(indiceAtual + 1 >= perguntas.length){
-                        indiceAtual ++;
+                    indiceAtual++;
+                    if(indiceAtual >= perguntas.length){
                         mostrarResultado();
                     } else{
-                        indiceAtual++;
                         mostrarPergunta();
 
                     }

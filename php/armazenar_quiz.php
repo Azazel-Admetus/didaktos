@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD']){
     $alternativa_4 = $_POST['alternativa4'];
     $resposta_correta = $_POST['resposta'];
     $token  = $_COOKIE['id_jogo'] ?? null;
-    if(!empty($pergunta)){
+    if(!empty($pergunta) && !empty($resposta_correta)){
         $stmt = $conn->prepare("INSERT INTO quiz_game (pergunta, alt_A, alt_B, alt_C, alt_D, resposta, token_jogo) VALUES (:pergunta, :altA, :altB, :altC, :altD, :resposta, :token)");
         $stmt->bindValue(':pergunta', $pergunta);
         $stmt->bindValue(':altA', $alternativa_1);

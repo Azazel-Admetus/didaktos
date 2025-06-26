@@ -32,14 +32,16 @@ foreach($todos_jogos as $jogo){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/explorar.css">
+    <link rel="stylesheet" href="../css/explorar.css?v=1.1">
     <title>DIDAKTOS | EXPLORAR JOGOS </title>
 </head>
 <body>
     <main>
         <header>
             <section>
-                <h1>DIDAKTOS</h1>
+                <a href="home.php" id="link-logo" aria-label="acessar a página inicial do site">
+                    <h1>DIDAKTOS</h1>
+                </a>
             </section>
             <section>
                 <nav id="config">
@@ -54,7 +56,7 @@ foreach($todos_jogos as $jogo){
                 </nav>
             </section>
         </header>
-        <h2>Explore os jogos criados pelos Usuários </h2>
+        <h2 id="texto-inicial">Explore os jogos criados pelos Usuários </h2>
         <section  class="feed">
             <?php if(empty($jogos_feed)): ?>
                 <p class="sem-jogos">Nenhum jogo encontrado no momento.</p>

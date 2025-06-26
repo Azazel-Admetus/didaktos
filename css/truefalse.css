@@ -18,6 +18,9 @@
 
    
 }
+#link-logo{
+    text-decoration: none;
+}
 #secao{
     display: flex;
     flex-direction: row;

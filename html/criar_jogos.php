@@ -50,7 +50,9 @@ if(isset($_GET['tipo'])){
 <body>
     <main>
         <header id="cabecalho">
-            <h1>DIDAKTOS</h1>
+            <a href="home.php" id="link-logo">
+                <h1>DIDAKTOS</h1>
+            </a>
             <section id="secao">
               
                 <div id="menu">

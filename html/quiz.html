@@ -10,7 +10,9 @@
 <body>
     <main>
         <header id="cabecalho">
-            <h1>DIDAKTOS</h1>
+            <a href="home.php" id="link-logo" aria-label="acessar a página inicial do site">
+                <h1>DIDAKTOS</h1>
+            </a>
             <section id="secao">             
                 <div id="menu">
                     <a id="perfil" href=""></a>
@@ -72,7 +74,7 @@
         if(erro === "inser_failed"){
             alert("Falha ao salvar o conteúdo. Por favor tente novamente.");
         } else if (erro === "emptyquest"){
-            alert("Por favor preencha o campo de pergunta.");
+            alert("Por favor preencha o campo de pergunta ou de resposta.");
         }
      
     </script>

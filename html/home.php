@@ -32,13 +32,15 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/home.css?v=1.0">
     <title>DIDAKTOS | HOME </title>
 </head>
 <body>
     <main>
         <header id="cabecalho">
-            <h1>DIDAKTOS</h1>
+            <a href="home.php" id="link-logo">
+                <h1>DIDAKTOS</h1>
+            </a>
             <section id="secao">
                 <a href="suporte.html">SUPORTE</a>
                 <a href="feed.php">PROCURAR JOGOS</a>
@@ -55,7 +57,7 @@ if($stmt->execute()){
         </header>
         <section>
             <header>
-                <h2>Meus Jogos</h2>
+                <h2 id="header-h2">Meus Jogos</h2>
             </header>
             <section class="feed">
                 <?php foreach($jogos_usuarios as $jogo): ?>
