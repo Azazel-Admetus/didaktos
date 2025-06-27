@@ -1,5 +1,6 @@
 <?php
 require_once "../php/conn.php";
+require_once "../php/function.php";
 $status = 'concluído';
 $jogos_feed = [];
 
@@ -32,12 +33,12 @@ foreach($todos_jogos as $jogo){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/explorar.css?v=1.1">
+    <link rel="stylesheet" href="../css/explorar.css?v=1.2">
     <title>DIDAKTOS | EXPLORAR JOGOS </title>
 </head>
 <body>
     <main>
-        <header>
+        <header id="cabecalho">
             <section>
                 <a href="home.php" id="link-logo" aria-label="acessar a página inicial do site">
                     <h1>DIDAKTOS</h1>
@@ -69,11 +70,14 @@ foreach($todos_jogos as $jogo){
                         'dificil' => 'dificil',
                         default => 'desconhecido'
                     };
+                    $tipo_token = TipoToken($jogo['token']);
+                        $img = ($tipo_token === 'quiz')
+                            ? "../img/quiz-removebg-preview.png"
+                            : "../img/verdadeiro_falso-removebg-preview.png";
                 ?>
-                    <a href="game.php?game=<?= htmlspecialchars($jogo['pin'])?>">
+                    <a id="link-jogo" href="game.php?game=<?= htmlspecialchars($jogo['pin'])?>">
                         <div class="card" data-dificuldade="<?= htmlspecialchars(strtolower($jogo['dificuldade'])) ?>">
-                            <header>
-                                <img src="../img/" alt="imagem do jogo">
+                            <header class="header-card" style="background-image: url('<?= $img ?>')">
                             </header>
                             <section>
                                 <h2 class="titulo"><?= htmlspecialchars($jogo['titulo']) ?></h2>

@@ -1,5 +1,6 @@
 <?php
 require_once "../php/conn.php";
+require_once "../php/function.php";
 session_start();
 $user_id = $_SESSION['user_id'];
 $jogos_usuarios = [];
@@ -29,6 +30,7 @@ $stmt2->bindValue(':id', $user_id);
 if($stmt2->execute()){
     $user = $stmt2->fetch(PDO::FETCH_ASSOC);
 }
+
 ?>
 
 
@@ -37,7 +39,7 @@ if($stmt2->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/home.css?v=1.1">
+    <link rel="stylesheet" href="../css/home.css?v=1.3">
     <title>DIDAKTOS | HOME </title>
 </head>
 <body>
@@ -62,15 +64,21 @@ if($stmt2->execute()){
             </header>
             <section class="feed">
                 <?php foreach($jogos_usuarios as $jogo): ?>
+                    <?php
+                        $tipo_token = TipoToken($jogo['token']);
+                        $img = ($tipo_token === 'quiz')
+                            ? "../img/quiz-removebg-preview.png"
+                            : "../img/verdadeiro_falso-removebg-preview.png";
+                    ?>
                     <a href="game.php?game=<?= htmlspecialchars($jogo['pin'])?>">
                         <div class="card">
-                            <header>
-                                <img src="../img/" alt="imagem do jogo">
+                            <header class="header-card" style="background-image : url('<?= $img ?>');">
+                                <!-- <img src="../img/quiz.png" alt="imagem do jogo"> -->
                             </header>
                             <section>
                                 <h2 class="titulo"><?= htmlspecialchars($jogo['titulo']) ?></h2>
                                 <p class="descricao"><?= htmlspecialchars($jogo['descricao']) ?></p>
-                                <p class="autor">Token: <?= htmlspecialchars($jogo['token']) ?></p>
+                                <!-- <p class="autor">Token: <?= htmlspecialchars($jogo['token']) ?></p> -->
                             </section>
                         </div>
                     </a>
@@ -78,7 +86,7 @@ if($stmt2->execute()){
             </section>
             <footer></footer>
         </section>
-     
+                    
 
     </main>
 </body>

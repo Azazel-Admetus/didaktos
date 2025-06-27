@@ -109,11 +109,17 @@ a:hover {
     border: 2px solid #a9a9a9;
     width: 400px;
     height: 200px;
-    padding: 50px 50px;
-    margin: 20px;
+    padding: 20px;
     position: relative;
-
+    margin: 20px;
+    overflow: hidden;
 }
 .card:hover{
     border-color: #42d0fb;
+}
+.header-card{
+
+    background-size: cover;
+    max-width: 100px;
+    height:100px;
 }
