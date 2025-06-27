@@ -58,8 +58,6 @@ if(isset($_GET['tipo'])){
                 <div id="menu">
                     <a id="perfil" href=""></a>
                     <div class="menucontent" >
-                        <h4>User</h4>
-                        <!-- <a id="config" href="#"></a> -->
                         <a href="suporte.html">
                             <i class="fa-solid fa-circle-question fa-2x" title="Suporte ao cliente para tirar dúvidas ou solucionar problemas."></i>
                         </a>

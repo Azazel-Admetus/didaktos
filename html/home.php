@@ -24,6 +24,11 @@ if($stmt->execute()){
     $jogos_usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 }
+$stmt2 = $conn->prepare("SELECT nome FROM users WHERE id = :id");
+$stmt2->bindValue(':id', $user_id);
+if($stmt2->execute()){
+    $user = $stmt2->fetch(PDO::FETCH_ASSOC);
+}
 ?>
 
 
@@ -32,7 +37,7 @@ if($stmt->execute()){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/home.css?v=1.0">
+    <link rel="stylesheet" href="../css/home.css?v=1.1">
     <title>DIDAKTOS | HOME </title>
 </head>
 <body>
@@ -46,12 +51,8 @@ if($stmt->execute()){
                 <a href="feed.php">PROCURAR JOGOS</a>
                 <a id="botao" href="criar_jogos.php">NOVO JOGO</a>
                 <div id="menu">
-                    <a id="perfil" href=""></a>
-                    <div class="menucontent" >
-                        <h4>User</h4>
-                        <!-- <a id="config" href="config.html"></a> -->
-                        <a id="sair" href="../php/logout.php"></a>
-                    </div>
+                    <a id="perfil" href="config.html"></a>
+                    <a id="sair" href="../php/logout.php"></a>
                 </div>
             </section>
         </header>
