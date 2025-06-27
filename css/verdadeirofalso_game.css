@@ -9,6 +9,9 @@ main{
     flex-direction: row;
     margin-top: 200px;
 }
+#link-logo {
+    text-decoration: none;
+}
 #content_jogo {
     margin: 20px;
     padding: 15px;

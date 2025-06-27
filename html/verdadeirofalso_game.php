@@ -55,7 +55,9 @@ if($stmt->execute()){
 </head>
 <body>
     <header>
-        <h1>DIDAKTOS</h1>
+        <a href="home.php" id="link-logo">
+            <h1>DIDAKTOS</h1>
+        </a>
     </header>
     <main>
         <section id='content_jogo'>

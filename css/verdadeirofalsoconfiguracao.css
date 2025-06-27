@@ -20,6 +20,9 @@
     align-items: center;
     gap: 50px;
 }
+#link-logo{
+    text-decoration: none;
+}
 #menu{
     position: relative;
 }
