@@ -24,12 +24,10 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');
-        if(error == "pass_machigatteiru"){
-            alert("Senha incorreta. Tente novamente");
-        } else if(error == "email_machigatteiru"){
-            alert("Insira um email válido");
-        } else if(error == "karappo"){
-            alert("Por favor insira em todos os campos");
+        if(error == "invalid_credentials"){
+            alert("Email ou senha incorretos. Tente novamente");
+        } else if(error = "karappo"){
+            alert("Por favor, preencha todos os campos necessários.");
         }
     </script>
     

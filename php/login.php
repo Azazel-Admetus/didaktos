@@ -2,7 +2,7 @@
 require_once "conn.php";
 // verificando se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $email=$_POST['email'];
+    $email=filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
     $pass=$_POST['senha'];
     // verificando se os campos estão em branco
     if (!empty($email) && !empty($pass)){
@@ -15,18 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $emailuser = $stmt->fetch(PDO::FETCH_ASSOC);
             // Compara a senha fornecida com a senha armazenada no db
             if (password_verify($pass, $emailuser['senha'])){
-                echo "Login bem-sucedido";
-                session_start();
+                session_regenerate_id(true);
                 $_SESSION['email'] = $emailuser['email'];
                 $_SESSION['user_id'] = $emailuser['id'];
                 header('Location:../html/home.php');
                 exit();
-            } else{
-                header('Location:../html/login.html?error=pass_machigatteiru');
-                exit;
             }
         }else{
-            header('Location:../html/login.html?error=email_machigatteiru');
+            header('Location:../html/login.html?error=invalid_credenteials');
             exit;
         }
     }else{
